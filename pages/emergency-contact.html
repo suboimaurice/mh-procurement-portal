@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json" />
+    <title>MH Procurement Portal | Emergency Contact</title>
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icons/icon-192x192.png">
+    <!-- Link to your compiled output.css file -->
+    <link href="../assets/css/output.css" rel="stylesheet">
+</head>
+<body class="flex justify-center items-center h-screen bg-light-green font-sans">
+
+<div class="flex bg-white w-[640px] h-[400px] shadow-md rounded-[15px] overflow-hidden">
+    
+    <!-- Left Section -->
+    <div class="relative bg-primary-green text-white w-1/2 p-5 flex flex-col justify-center rounded-r-[160px]">
+        <div class="relative font-semibold text-2xl tracking-wide -top-1/4 left-1/2 -translate-x-1/2">LOGO</div>
+        <h1 class="text-2xl mt-0">Emergency Contact</h1>
+        <p class="text-sm text-light-gray leading-relaxed"> Please provide the details of your emergency contact person.</p>
+    </div>
+
+    <!-- Middle Divider (adjusted for Tailwind) -->
+     <div class="flex flex-col">
+        <div class="relative left-[-15px] top-[35%] bg-primary-green/50 w-[40px] h-[40px] rounded-full"></div>
+        <div class="relative left-[-15px] top-[45%] bg-primary-green/50 w-[40px] h-[40px] rounded-full"></div>
+     </div>
+    <!-- Right Section -->
+    <div class="w-1/2 p-5 pr-8 flex flex-col justify-center items-center text-left">
+        <h2 class="mt-0 text-xl text-primary-green">Contact Details</h2>
+        <form class="w-full">
+            <div class="mt-4 flex flex-wrap">
+                <label for="contact-name" class="text-sm font-medium text-primary-green">Full Name</label>
+                <input type="text" id="contact-name" name="contact-name" required 
+                       class="w-full mt-1 px-3 py-2 border border-medium-gray outline-none rounded-full focus:border-primary-green">
+            </div>
+            <div class="mt-4 flex flex-wrap">
+                <label for="contact-relationship" class="text-sm font-medium text-primary-green">Relationship</label>
+                <input type="text" id="contact-relationship" name="contact-relationship" required 
+                       class="w-full mt-1 px-3 py-2 border border-medium-gray outline-none rounded-full focus:border-primary-green">
+            </div>
+            <div class="mt-4 flex flex-wrap">
+                <label for="contact-phone" class="text-sm font-medium text-primary-green">Phone Number</label>
+                <input type="tel" id="contact-phone" name="contact-phone" required 
+                       class="w-full mt-1 px-3 py-2 border border-medium-gray outline-none rounded-full focus:border-primary-green">
+            </div>
+            <button type="submit" class="w-full mt-4 px-3 py-2 rounded-full bg-primary-green text-white cursor-pointer text-base flex justify-center tracking-wide transition-all ease-in-out duration-150 hover:bg-primary-green/50">Submit</button>
+            <div class="mt-2 text-xs text-center">
+                <p class="text-sm">Need help? 
+                <a href="#" class="text-hospital-blue no-underline hover:underline">Contact Support</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

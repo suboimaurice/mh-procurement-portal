@@ -1,0 +1,209 @@
+/*
+ * MH Procurement Website - Main Stylesheet
+ * Municipal Hospital Outpatient Services Department
+ *
+ * This file contains the project's base styles, custom components, and
+ * any overrides, organized with Tailwind's @layer directives.
+ */
+
+/* Import external fonts first, if needed */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* === Tailwind Directives === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* === Layers for Custom Styles === */
+@layer base {
+    /* Reset and Base Styles */
+    * {
+        @apply m-0 p-0 box-border; 
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        @apply font-normal leading-relaxed text-dark-gray bg-light-green;
+    }
+}
+
+
+@layer components {
+    /* Navigation Styles */
+    .navbar {
+        @apply bg-gradient-to-br from-primary-green to-dark-gray shadow-md;
+    }
+    
+    .nav-link {
+        @apply transition-all duration-300 relative text-white font-semibold;
+    }
+    
+    .nav-link:hover {
+        @apply text-primary-color -translate-y-0.5;
+    }
+    
+    .nav-link::after {
+        content: '';
+        @apply absolute bottom-[-4px] left-1/2 w-0 h-0.5 bg-primary-color transition-all duration-300 -translate-x-1/2;
+    }
+    
+    .nav-link:hover::after {
+        @apply w-full;
+    }
+
+    /* Hero Section Styles */
+    .hero-gradient {
+        background-image: radial-gradient(circle at center, rgba(51, 168, 82, 0.4) 0%, rgba(51, 168, 82, 0) 70%),
+                          linear-gradient(135deg, #33a852 0%, #2b8a42 100%);
+    }
+
+    /* Card Styles */
+    .card {
+        @apply bg-white rounded-xl shadow-md transition-all duration-300 border border-light-gray;
+    }
+    
+    .card:hover {
+        @apply shadow-xl -translate-y-1;
+    }
+
+    /* Category Card Styles */
+    .category-card {
+        @apply bg-gradient-to-br from-white to-light-gray border border-transparent transition-all duration-300;
+    }
+    
+    .category-card:hover {
+        @apply border-orange-600 bg-white;
+    }
+
+    /* Product Card Styles */
+    .product-card {
+        @apply border border-light-gray transition-all duration-300;
+    }
+    
+    .product-card:hover {
+        @apply border-primary-green shadow-lg shadow-primary-green/30;
+    }
+
+    /* Button Styles */
+    .btn {
+        @apply py-3 px-6 rounded-lg font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer inline-block text-center no-underline;
+    }
+    
+    .btn-primary {
+        @apply bg-gradient-to-br from-primary-green to-[#2b8a42] text-white;
+    }
+    
+    .btn-primary:hover {
+        @apply bg-gradient-to-br from-[#2b8a42] to-[#28753a] -translate-y-0.5 shadow-lg shadow-primary-green/50;
+    }
+    
+    .btn-secondary {
+        @apply bg-transparent border-2 border-primary-green text-primary-green;
+    }
+    
+    .btn-secondary:hover {
+        @apply bg-primary-green text-white -translate-y-0.5;
+    }
+
+    /* Form Styles */
+    .form-input {
+        @apply w-full py-3 px-4 border border-primary-green transition-all duration-300 text-base bg-white rounded-md focus:outline-none focus:border-[#2a7f3e];
+    }
+
+    /* Form Labels */
+    .form-label {
+        @apply block mb-2 font-semibold text-dark-gray;
+    }
+
+    /* Footer Styles */
+    .footer {
+        @apply bg-dark-gray text-light-gray py-12 px-4;
+    }
+
+    /* Utility Classes */
+    .text-primary {
+        @apply text-primary-green;
+    }
+    
+    .text-secondary {
+        @apply text-medium-gray;
+    }
+    
+    .bg-primary {
+        @apply bg-primary-green;
+    }
+    
+    .bg-light {
+        @apply bg-light-gray;
+    }
+}
+
+
+/*
+ * @layer utilities
+ * For custom, single-purpose classes that should always take precedence.
+ */
+@layer utilities {
+    /* --- Animations --- */
+    .loading {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
+
+    .fade-in {
+        animation: fadeIn 0.6s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .slide-in-left {
+        animation: slideInLeft 0.6s ease-out;
+    }
+    
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+
+/* --- Other global styles and variables --- */
+
+/* Print Styles for Order Forms */
+@media print {
+    .no-print {
+        @apply hidden !important;
+    }
+
+    body {
+        @apply text-black bg-white;
+    }
+
+    .card {
+        @apply shadow-none border border-[#ccc];
+    }
+}

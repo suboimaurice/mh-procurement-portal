@@ -1,0 +1,12 @@
+# Dependency directory
+/node_modules
+
+# Build output directory
+/assets/css/output.css
+
+# Log files
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db

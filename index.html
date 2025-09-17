@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Municipal Hospital Outpatient Services Department Procurement Portal - Efficient sourcing of medical supplies, lab equipment, pharmaceuticals, and office materials">
+    <meta name="keywords" content="hospital procurement, medical supplies, lab equipment, pharmaceuticals, municipal hospital, outpatient services">
+    <meta name="author" content="Municipal Hospital IT Department">
+    <link rel="manifest" href="/manifest.json">
+    <!-- Title -->
+    <title>MH Procurement Portal | Municipal Hospital Outpatient Services</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="72x72" href="assets/images/icons/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/images/icons/icon-512x512.png">
+
+    <link href="assets/css/output.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body class="bg-gray-50">
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/mh-procurement-portal/service-worker.js').then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+</script>
+
+    <!-- Navigation Header (reuse same as other pages) -->
+    <div id="header"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 slide-in-left">
+                Streamlined Hospital Procurement
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 fade-in">
+                Efficient sourcing of medical supplies, lab equipment, pharmaceuticals, and office materials 
+                for Municipal Hospital's Outpatient Services Department
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in">
+                <a href="#categories" class="btn text-lg px-8 py-4 rounded-full shadow-lg bg-orange-300 text-orange-900">
+                    <i class="fas fa-boxes mr-2"></i>Browse Categories
+                </a>
+                <a href="pages/how-it-works.html" class="btn border border-orange-300 text-orange-300 text-lg px-8 py-4 rounded-full shadow-lg">
+                    <i class="fas fa-question-circle mr-2"></i>How It Works
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Search Section -->
+    <section class="bg-white py-8 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <form id="search-form" class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input 
+                        type="search" 
+                        id="search-input"
+                        placeholder="Search for medical supplies, equipment, pharmaceuticals..." 
+                        class="form-input rounded-full pr-12 text-lg shadow-lg"
+                    >
+                    <button type="submit" class="absolute right-4 top-1/2 text-gray-500 hover:text-orange-900">
+                        <i class="fas fa-search text-xl transform -translate-y-1/2"></i>
+                    </button>
+                </div>
+            </form>
+            <div id="search-results" class="text-center text-gray-600 mt-4"></div>
+        </div>
+    </section>
+    
+    <!-- Category Navigation -->
+    <section id="categories" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Procurement Categories
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Browse our comprehensive catalog organized by department needs
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Medical Supplies Category -->
+                <div class="category-card card p-8 text-center rounded-2xl shadow-2xl">
+                    <div class="text-blue-600 mb-6">
+                        <i class="fas fa-stethoscope text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Medical Supplies</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Essential medical supplies for outpatient care including gloves, syringes, 
+                        bandages, and diagnostic tools.
+                    </p>
+                    <div class="flex justify-between items-center mb-6 text-sm text-gray-500">
+                        <span><i class="fas fa-box mr-1"></i>150+ Items</span>
+                        <span><i class="fas fa-truck mr-1"></i>Fast Delivery</span>
+                    </div>
+                    <a href="pages/medical-supplies.html" class="btn btn-primary w-full rounded-full">
+                        Browse Medical Supplies
+                    </a>
+                </div>
+                
+                <!-- Lab Equipment Category -->
+                <div class="category-card card p-8 text-center rounded-2xl shadow-2xl">
+                    <div class="text-green-600 mb-6">
+                        <i class="fas fa-microscope text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Lab Equipment</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        High-quality laboratory equipment for accurate diagnostics and testing 
+                        in outpatient services.
+                    </p>
+                    <div class="flex justify-between items-center mb-6 text-sm text-gray-500">
+                        <span><i class="fas fa-box mr-1"></i>75+ Items</span>
+                        <span><i class="fas fa-certificate mr-1"></i>Certified</span>
+                    </div>
+                    <a href="pages/lab-equipment.html" class="btn btn-primary w-full rounded-full">
+                        Browse Lab Equipment
+                    </a>
+                </div>
+                
+                <!-- Pharmaceuticals Category -->
+                <div class="category-card card p-8 text-center rounded-2xl shadow-2xl">
+                    <div class="text-purple-600 mb-6">
+                        <i class="fas fa-pills text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Pharmaceuticals</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        FDA-approved medications and pharmaceutical supplies for 
+                        outpatient treatment and care.
+                    </p>
+                    <div class="flex justify-between items-center mb-6 text-sm text-gray-500">
+                        <span><i class="fas fa-box mr-1"></i>200+ Items</span>
+                        <span><i class="fas fa-shield-alt mr-1"></i>FDA Approved</span>
+                    </div>
+                    <a href="pages/pharmaceuticals.html" class="btn btn-primary w-full rounded-full">
+                        Browse Pharmaceuticals
+                    </a>
+                </div>
+                
+                <!-- Office Supplies Category -->
+                <div class="category-card card p-8 text-center rounded-2xl shadow-2xl">
+                    <div class="text-orange-600 mb-6">
+                        <i class="fas fa-clipboard text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Office Supplies</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Administrative supplies, stationery, and office equipment for 
+                        efficient department operations.
+                    </p>
+                    <div class="flex justify-between items-center mb-6 text-sm text-gray-500">
+                        <span><i class="fas fa-box mr-1"></i>100+ Items</span>
+                        <span><i class="fas fa-clock mr-1"></i>Next Day</span>
+                    </div>
+                    <a href="pages/office-supplies.html" class="btn btn-primary w-full rounded-full">
+                        Browse Office Supplies
+                    </a>
+                </div>
+                
+                <!-- Services Category -->
+                <div class="category-card card p-8 text-center rounded-2xl shadow-2xl">
+                    <div class="text-orange-600 mb-6">
+                        <i class="fas fa-cogs text-5xl "></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Services</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Maintenance, calibration, training, and support services for 
+                        hospital equipment and operations.
+                    </p>
+                    <div class="flex justify-between items-center mb-6 text-sm text-gray-500">
+                        <span><i class="fas fa-tools mr-1"></i>25+ Services</span>
+                        <span><i class="fas fa-user-tie mr-1"></i>Expert Staff</span>
+                    </div>
+                    <a href="pages/services.html" class="btn btn-primary w-full rounded-full">
+                        Browse Services
+                    </a>
+                </div>
+                
+                <!-- Emergency Orders -->
+                <div class="category-card card p-8 text-center bg-red-50 border-red-200 rounded-2xl shadow-2xl">
+                    <div class="text-red-600 mb-6">
+                        <i class="fas fa-exclamation-triangle text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Emergency Orders</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Urgent procurement requests for critical medical supplies 
+                        and equipment with expedited processing.
+                    </p>
+                    <div class="flex justify-between items-center mb-6 text-sm text-gray-500">
+                        <span><i class="fas fa-phone mr-1"></i>24/7 Support</span>
+                        <span><i class="fas fa-bolt mr-1"></i>Same Day</span>
+                    </div>
+                    <a href="pages/emergency-contact.html" class="btn bg-red-600 hover:bg-red-700 text-white w-full rounded-full shadow-md">
+                        Emergency Contact
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Why Choose Our Procurement Portal?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Designed specifically for healthcare procurement with efficiency and reliability in mind
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Time Efficient</h3>
+                    <p class="text-gray-600">Streamlined ordering process saves valuable time for medical staff</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Quality Assured</h3>
+                    <p class="text-gray-600">All products meet medical standards and regulatory requirements</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Cost Effective</h3>
+                    <p class="text-gray-600">Competitive pricing and bulk ordering options for budget optimization</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">24/7 Support</h3>
+                    <p class="text-gray-600">Round-the-clock assistance for urgent procurement needs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Order List Modal -->
+    <div id="order-list-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-96 overflow-hidden">
+                <div class="p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Order List</h3>
+                        <button onclick="toggleOrderList()" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 max-h-64 overflow-y-auto">
+                    <div id="cart-items"></div>
+                </div>
+                <div class="p-6 border-t bg-gray-50">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-semibold">Total: <span id="cart-total">$0.00</span></span>
+                        <div class="space-x-2">
+                            <button onclick="MHProcurement.cart.clearAll()" class="btn bg-gray-500 hover:bg-gray-600 text-white text-sm">
+                                Clear All
+                            </button>
+                            <button onclick="MHProcurement.pdf.generateOrderForm()" class="btn btn-primary text-sm">
+                                <i class="fas fa-download mr-1"></i>Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer (reuse same as other pages) -->
+    <div id="footer" class="mt-12"></div>
+    <!-- Scripts -->
+    <!-- jsPDF for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="assets/js/index.js"></script>
+    
+    <!-- Additional Page-Specific JavaScript -->
+    <script>
+        // Load header
+                fetch('commons/header.html')
+                        .then(response => response.text())
+                        .then(data => {
+                                document.getElementById('header').innerHTML = data;
+                                const btn = document.getElementById('mobile-menu-button');
+                                const menu = document.getElementById('mobile-menu');
+                                if (btn && menu) {
+                                    btn.addEventListener('click', function() {
+                                        menu.classList.toggle('hidden');
+                                    });
+                                }
+                                // Only highlight active nav link after header is loaded
+                                if (window.MHProcurement && MHProcurement.navigation) {
+                                        MHProcurement.navigation.highlightActiveLink();
+                                }
+                        });
+
+        // Load footer
+        fetch('commons/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;    
+            });
+        
+        // Toggle Order List
+        function toggleOrderList() {
+            const modal = document.getElementById('order-list-modal');
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }       
+        
+        /**
+         * Smooth scroll to sections
+         */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        /**
+         * Close modal when clicking outside
+         */
+        document.getElementById('order-list-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleOrderList();
+            }
+        });
+    </script>
+    
+</body>
+</html>

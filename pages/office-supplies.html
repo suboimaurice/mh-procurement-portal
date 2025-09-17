@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Office Supplies for Municipal Hospital - Browse essential office supplies including paper products, stationery, computer accessories, and furniture">
+    <meta name="keywords" content="office supplies, paper products, stationery, computer accessories, furniture, hospital procurement">
+    <meta name="author" content="Municipal Hospital IT Department">
+    <link rel="manifest" href="../manifest.json" />
+    <!-- Title -->
+    <title>Office Supplies | MH Procurement Portal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icons/icon-192x192.png">
+<link href="../assets/css/output.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation Header (reuse same as other pages) -->
+    <div id="header"></div>
+    
+    <!-- Breadcrumb Navigation -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2">
+                    <li>
+                        <a href="../index.html" class="text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </li>
+                    <li>
+                        <span class="text-blue-600 font-semibold">Office Supplies</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-600 to-green-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                        <i class="fas fa-clipboard mr-3"></i>Office Supplies
+                    </h1>
+                    <p class="text-xl opacity-90 max-w-2xl">
+                        Essential office supplies and equipment for administrative operations including 
+                        paper products, stationery, computer accessories, and office furniture.
+                    </p>
+                </div>
+                <div class="hidden md:block text-6xl opacity-30">
+                    <i class="fas fa-clipboard"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Filter and Search Section -->
+    <section class="bg-white py-6 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-md">
+                    <form id="search-form" class="relative">
+                        <input 
+                            type="search" 
+                            id="search-input"
+                            placeholder="Search office supplies..." 
+                            class="form-input pr-12 border-orange-300 rounded-xl"
+                        >
+                        <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Filter Options -->
+                <div class="flex items-center gap-4">
+                    <select id="category-filter" class="form-input border-orange-300 rounded-xl">
+                        <option value="">All Categories</option>
+                        <option value="paper-products">Paper Products</option>
+                        <option value="stationery">Stationery</option>
+                        <option value="computer-accessories">Computer Accessories</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="filing-storage">Filing & Storage</option>
+                        <option value="printing-supplies">Printing Supplies</option>
+                    </select>
+                    
+                    <select id="sort-filter" class="form-input border-orange-300 rounded-xl">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="category">Category</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div id="search-results" class="text-center text-gray-600 mt-4"></div>
+        </div>
+    </section>
+    
+    <!-- Products Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid">
+                
+                <!-- Product Card: Copy Paper -->
+                <div class="product-card card p-6 rounded-xl" 
+                     data-id="office-001" 
+                     data-name="Copy Paper A4 White" 
+                     data-price="45.99" 
+                     data-category="paper-products"
+                     data-description="High-quality white copy paper, 500 sheets per ream, case of 10">
+                    <div class="text-left mb-4">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-file-alt text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Copy Paper A4 White</h3>
+                        <p class="text-gray-600 text-sm mb-3">Multi-purpose white copy paper for everyday use</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$45.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-box mr-1"></i>Case of 10 reams (5000 sheets)
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="50">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-recycle mr-1"></i>80gsm • <i class="fas fa-truck mr-1"></i>2-3 Days Delivery
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Ballpoint Pens -->
+                <div class="product-card card p-6" 
+                     data-id="office-002" 
+                     data-name="Ballpoint Pens Blue (Pack of 50)" 
+                     data-price="12.99" 
+                     data-category="stationery"
+                     data-description="Medium-tip ballpoint pens with blue ink, pack of 50">
+                    <div class="text-left mb-4">
+                        <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-pen text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Ballpoint Pens Blue (Pack of 50)</h3>
+                        <p class="text-gray-600 text-sm mb-3">Medium-tip ballpoint pens with smooth blue ink</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$12.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-pen-alt mr-1"></i>Pack of 50 pens
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="100">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-check mr-1"></i>Smooth writing • <i class="fas fa-truck mr-1"></i>Same Day
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Wireless Mouse -->
+                <div class="product-card card p-6" 
+                     data-id="office-003" 
+                     data-name="Wireless Optical Mouse" 
+                     data-price="24.99" 
+                     data-category="computer-accessories"
+                     data-description="Ergonomic wireless optical mouse with USB receiver">
+                    <div class="text-left mb-4">
+                        <div class="bg-gray-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-mouse text-gray-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Wireless Optical Mouse</h3>
+                        <p class="text-gray-600 text-sm mb-3">Ergonomic design with 2.4GHz wireless connection</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$24.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-wifi mr-1"></i>2.4GHz wireless
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="25">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-battery-three-quarters mr-1"></i>Long battery • <i class="fas fa-truck mr-1"></i>Next Day
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Filing Cabinets -->
+                <div class="product-card card p-6" 
+                     data-id="office-004" 
+                     data-name="4-Drawer Filing Cabinet" 
+                     data-price="189.99" 
+                     data-category="furniture"
+                     data-description="Steel 4-drawer filing cabinet with lock, letter size">
+                    <div class="text-left mb-4">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-archive text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">4-Drawer Filing Cabinet</h3>
+                        <p class="text-gray-600 text-sm mb-3">Heavy-duty steel construction with lock</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$189.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-lock mr-1"></i>Lockable with keys
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="10">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-tools mr-1"></i>Assembly required • <i class="fas fa-truck mr-1"></i>5-7 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Laser Printer -->
+                <div class="product-card card p-6" 
+                     data-id="office-005" 
+                     data-name="Monochrome Laser Printer" 
+                     data-price="299.99" 
+                     data-category="computer-accessories"
+                     data-description="Network-ready monochrome laser printer with duplex printing">
+                    <div class="text-left mb-4">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-print text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Monochrome Laser Printer</h3>
+                        <p class="text-gray-600 text-sm mb-3">Network-ready with automatic duplex printing</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$299.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-network-wired mr-1"></i>Network & USB connectivity
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="5">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-tachometer-alt mr-1"></i>Fast printing • <i class="fas fa-truck mr-1"></i>3-5 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Ring Binders -->
+                <div class="product-card card p-6" 
+                     data-id="office-006" 
+                     data-name="3-Ring Binders (Pack of 10)" 
+                     data-price="34.99" 
+                     data-category="filing-storage"
+                     data-description="Heavy-duty 3-ring binders with clear pockets, 2-inch capacity">
+                    <div class="text-left mb-4">
+                        <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-folder-open text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">3-Ring Binders (Pack of 10)</h3>
+                        <p class="text-gray-600 text-sm mb-3">Heavy-duty binders with clear label pockets</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$34.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-ruler mr-1"></i>2-inch capacity
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="20">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>Durable • <i class="fas fa-truck mr-1"></i>2-3 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Toner Cartridge -->
+                <div class="product-card card p-6" 
+                     data-id="office-007" 
+                     data-name="Laser Printer Toner Cartridge" 
+                     data-price="89.99" 
+                     data-category="printing-supplies"
+                     data-description="High-yield black toner cartridge, 3000 pages capacity">
+                    <div class="text-left mb-4">
+                        <div class="bg-black/90 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-tint text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Laser Printer Toner Cartridge</h3>
+                        <p class="text-gray-600 text-sm mb-3">High-yield black toner for laser printers</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$89.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-file-alt mr-1"></i>Up to 3000 pages
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="15">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-check-circle mr-1"></i>OEM Quality • <i class="fas fa-truck mr-1"></i>Next Day
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Office Chair -->
+                <div class="product-card card p-6" 
+                     data-id="office-008" 
+                     data-name="Ergonomic Office Chair" 
+                     data-price="249.99" 
+                     data-category="furniture"
+                     data-description="Adjustable ergonomic office chair with lumbar support">
+                    <div class="text-left mb-4">
+                        <div class="bg-teal-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-chair text-teal-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Ergonomic Office Chair</h3>
+                        <p class="text-gray-600 text-sm mb-3">Height adjustable with lumbar support</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$249.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-arrows-alt-v mr-1"></i>Height adjustable
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="15">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-tools mr-1"></i>Assembly included • <i class="fas fa-truck mr-1"></i>5-7 Days
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="btn btn-outline text-lg px-8 py-3 bg-gray-500 rounded-full text-white">
+                    <i class="fas fa-plus mr-2"></i>Load More Office Supplies
+                </button>
+                <p class="text-gray-600 mt-4">Showing 8 of 300+ office supply items</p>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Order List Modal -->
+    <div id="order-list-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-auto overflow-hidden">
+                <div class="p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Order List</h3>
+                        <button onclick="toggleOrderList()" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-2xl bg-gray-200 py-1 px-2"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 max-h-64 overflow-y-auto">
+                    <div id="cart-items"></div>
+                </div>
+                <div class="p-6 border-t bg-gray-50">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-semibold">Total: <span id="cart-total">$0.00</span></span>
+                        <div class="space-x-2">
+                            <button onclick="MHProcurement.cart.clearAll()" class="btn bg-gray-500 hover:bg-gray-600 text-white text-sm">
+                                Clear All
+                            </button>
+                            <button onclick="MHProcurement.pdf.generateOrderForm()" class="btn btn-primary text-sm">
+                                <i class="fas fa-download mr-1"></i>Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer (reuse same as other pages) -->
+    <div id="footer" class="mt-12"></div>
+    
+    <!-- Scripts -->
+    <!-- jsPDF for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="../assets/js/index.js"></script>
+    
+    <!-- Page-Specific JavaScript -->
+    <script>
+        // Load header
+    fetch('../commons/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header').innerHTML = html;
+                MHProcurement.navigation.initMobileMenu();
+        });
+
+            
+
+        // Toggle Order List Modal
+        function toggleOrderList() {
+            const modal = document.getElementById('order-list-modal');
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+        
+        // Filter and Sort Products
+        function initializeFilters() {
+            const categoryFilter = document.getElementById('category-filter');
+            const sortFilter = document.getElementById('sort-filter');
+            const productsGrid = document.getElementById('products-grid');
+            const products = Array.from(productsGrid.children);
+            
+            function filterProducts() {
+                const selectedCategory = categoryFilter.value;
+                const sortBy = sortFilter.value;
+                
+                // Filter products
+                const filteredProducts = products.filter(product => {
+                    if (!selectedCategory) return true;
+                    return product.dataset.category === selectedCategory;
+                });
+                
+                // Sort products
+                filteredProducts.sort((a, b) => {
+                    switch (sortBy) {
+                        case 'name':
+                            return a.dataset.name.localeCompare(b.dataset.name);
+                        case 'price-low':
+                            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                        case 'price-high':
+                            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                        case 'category':
+                            return a.dataset.category.localeCompare(b.dataset.category);
+                        default:
+                            return 0;
+                    }
+                });
+                
+                // Clear and repopulate grid
+                productsGrid.innerHTML = '';
+                filteredProducts.forEach(product => {
+                    productsGrid.appendChild(product);
+                });
+                
+                // Hide non-matching products
+                products.forEach(product => {
+                    if (filteredProducts.includes(product)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+            
+            if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
+            if (sortFilter) sortFilter.addEventListener('change', filterProducts);
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('order-list-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleOrderList();
+            }
+        });
+
+        // Initialize page functionality
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFilters();
+        });
+        
+        // Load footer
+    fetch('../commons/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;    
+            });
+    </script>  
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Services for Municipal Hospital - Browse professional services including equipment maintenance, training programs, installation, and technical support">
+    <meta name="keywords" content="medical services, equipment maintenance, training programs, installation services, technical support, hospital procurement">
+    <meta name="author" content="Municipal Hospital IT Department">
+    <link rel="manifest" href="../manifest.json" />
+    <!-- Title -->
+    <title>Services | MH Procurement Portal</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/icons/icon-192x192.png">
+    
+<link href="../assets/css/output.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation Header (reuse same as other pages) -->
+    <div id="header"></div>
+    
+    <!-- Breadcrumb Navigation -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2">
+                    <li>
+                        <a href="../index.html" class="text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </li>
+                    <li>
+                        <span class="text-blue-600 font-semibold">Services</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-600 to-teal-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                        <i class="fas fa-cogs mr-3"></i>Professional Services
+                    </h1>
+                    <p class="text-xl opacity-90 max-w-2xl">
+                        Comprehensive professional services including equipment maintenance, staff training, 
+                        installation services, and ongoing technical support for optimal operations.
+                    </p>
+                </div>
+                <div class="hidden md:block text-6xl opacity-30">
+                    <i class="fas fa-cogs"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Filter and Search Section -->
+    <section class="bg-white py-6 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-md">
+                    <form id="search-form" class="relative">
+                        <input 
+                            type="search" 
+                            id="search-input"
+                            placeholder="Search services..." 
+                            class="form-input pr-12 rounded-xl shadow-md border-orange-300"
+                        >
+                        <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Filter Options -->
+                <div class="flex items-center gap-4">
+                    <select id="category-filter" class="form-input rounded-xl shadow-md border-orange-300">
+                        <option value="">All Categories</option>
+                        <option value="maintenance">Equipment Maintenance</option>
+                        <option value="training">Training Programs</option>
+                        <option value="installation">Installation Services</option>
+                        <option value="support">Technical Support</option>
+                        <option value="calibration">Calibration Services</option>
+                        <option value="consultation">Consultation</option>
+                    </select>
+                    
+                    <select id="sort-filter" class="form-input rounded-xl shadow-md border-orange-300">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="category">Category</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div id="search-results" class="text-center text-gray-600 mt-4"></div>
+        </div>
+    </section>
+    
+    <!-- Products Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid">
+                
+                <!-- Service Card: Equipment Maintenance -->
+                <div class="product-card card p-6" 
+                     data-id="service-001" 
+                     data-name="Annual Equipment Maintenance Contract" 
+                     data-price="2499.99" 
+                     data-category="maintenance"
+                     data-description="Comprehensive annual maintenance contract for medical equipment">
+                    <div class="text-left mb-4">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-tools text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Annual Equipment Maintenance Contract</h3>
+                        <p class="text-gray-600 text-sm mb-3">Comprehensive maintenance coverage for medical equipment</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$2,499.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-calendar mr-1"></i>12-month contract
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="5">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-success w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-clock mr-1"></i>24/7 Support • <i class="fas fa-certificate mr-1"></i>Certified Technicians
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card: Staff Training -->
+                <div class="product-card card p-6" 
+                     data-id="service-002" 
+                     data-name="Medical Equipment Training Program" 
+                     data-price="899.99" 
+                     data-category="training"
+                     data-description="Comprehensive training program for medical equipment operation">
+                    <div class="text-left mb-4">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-chalkboard-teacher text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Medical Equipment Training Program</h3>
+                        <p class="text-gray-600 text-sm mb-3">Professional training for equipment operation and safety</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$899.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-users mr-1"></i>Up to 20 participants
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="10">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-success w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-certificate mr-1"></i>Certificate provided • <i class="fas fa-clock mr-1"></i>8-hour program
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card: Equipment Installation -->
+                <div class="product-card card p-6" 
+                     data-id="service-003" 
+                     data-name="Medical Equipment Installation Service" 
+                     data-price="599.99" 
+                     data-category="installation"
+                     data-description="Professional installation and setup of medical equipment">
+                    <div class="text-left mb-4">
+                        <div class="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-wrench text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Medical Equipment Installation Service</h3>
+                        <p class="text-gray-600 text-sm mb-3">Expert installation and configuration of medical equipment</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$599.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-cog mr-1"></i>Complete setup included
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="20">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-success w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-tools mr-1"></i>Professional setup • <i class="fas fa-clock mr-1"></i>Same day service
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card: Technical Support -->
+                <div class="product-card card p-6" 
+                     data-id="service-004" 
+                     data-name="24/7 Technical Support Contract" 
+                     data-price="1899.99" 
+                     data-category="support"
+                     data-description="Round-the-clock technical support for all equipment">
+                    <div class="text-left mb-4">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-headset text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">24/7 Technical Support Contract</h3>
+                        <p class="text-gray-600 text-sm mb-3">Round-the-clock technical support and troubleshooting</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$1,899.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-1"></i>24/7 availability
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="3">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-success w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-phone mr-1"></i>Phone & Remote • <i class="fas fa-bolt mr-1"></i>Priority response
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card: Equipment Calibration -->
+                <div class="product-card card p-6" 
+                     data-id="service-005" 
+                     data-name="Precision Equipment Calibration" 
+                     data-price="399.99" 
+                     data-category="calibration"
+                     data-description="Professional calibration service for laboratory instruments">
+                    <div class="text-left mb-4">
+                        <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-crosshairs text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Precision Equipment Calibration</h3>
+                        <p class="text-gray-600 text-sm mb-3">ISO-standard calibration for laboratory instruments</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$399.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-certificate mr-1"></i>ISO certified
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="15">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-success w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-file-alt mr-1"></i>Certificate included • <i class="fas fa-clock mr-1"></i>1-2 hour service
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card: Safety Consultation -->
+                <div class="product-card card p-6" 
+                     data-id="service-006" 
+                     data-name="Healthcare Safety Consultation" 
+                     data-price="1299.99" 
+                     data-category="consultation"
+                     data-description="Comprehensive safety assessment and consultation services">
+                    <div class="text-left mb-4">
+                        <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-shield-alt text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Healthcare Safety Consultation</h3>
+                        <p class="text-gray-600 text-sm mb-3">Expert safety assessment and compliance consultation</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$1,299.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-clipboard-check mr-1"></i>Full assessment included
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="5">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-success w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-file-pdf mr-1"></i>Detailed report • <i class="fas fa-users mr-1"></i>Expert consultants
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card: Network Setup -->
+                <div class="product-card card p-6" 
+                     data-id="service-007" 
+                     data-name="Medical Network Integration Service" 
+                     data-price="1799.99" 
+                     data-category="installation"
+                     data-description="Professional network setup and integration for medical systems">
+                    <div class="text-left mb-4">
+                        <div class="bg-teal-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-network-wired text-teal-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Medical Network Integration Service</h3>
+                        <p class="text-gray-600 text-sm mb-3">Complete network setup and system integration</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$1,799.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-wifi mr-1"></i>Network & wireless setup
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="5">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-success w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-lock mr-1"></i>Secure configuration • <i class="fas fa-tools mr-1"></i>Professional setup
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card: Emergency Response -->
+                <div class="product-card card p-6" 
+                     data-id="service-008" 
+                     data-name="Emergency Response Service Contract" 
+                     data-price="3299.99" 
+                     data-category="support"
+                     data-description="Priority emergency response and repair service contract">
+                    <div class="text-left mb-4">
+                        <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Emergency Response Service Contract</h3>
+                        <p class="text-gray-600 text-sm mb-3">Priority emergency response with 2-hour guarantee</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$3,299.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-tachometer-alt mr-1"></i>2-hour response time
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="3">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-success w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-bolt mr-1"></i>Priority service • <i class="fas fa-calendar mr-1"></i>12-month contract
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="btn btn-outline text-lg px-8 py-3 bg-gray-500 rounded-full text-white">
+                    <i class="fas fa-plus mr-2"></i>Load More Services
+                </button>
+                <p class="text-gray-600 mt-4">Showing 8 of 50+ professional services</p>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Order List Modal -->
+    <div id="order-list-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-auto overflow-hidden">
+                <div class="p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Order List</h3>
+                        <button onclick="toggleOrderList()" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-2xl bg-gray-200 py-1 px-2"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 max-h-64 overflow-y-auto">
+                    <div id="cart-items"></div>
+                </div>
+                <div class="p-6 border-t bg-gray-50">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-semibold">Total: <span id="cart-total">$0.00</span></span>
+                        <div class="space-x-2">
+                            <button onclick="MHProcurement.cart.clearAll()" class="btn bg-gray-500 hover:bg-gray-600 text-white text-sm">
+                                Clear All
+                            </button>
+                            <button onclick="MHProcurement.pdf.generateOrderForm()" class="btn btn-primary text-sm">
+                                <i class="fas fa-download mr-1"></i>Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer (reuse same as other pages) -->
+    <div id="footer" class="mt-12"></div>
+    
+    <!-- Scripts -->
+    <!-- jsPDF for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="../assets/js/index.js"></script>
+    
+    <!-- Page-Specific JavaScript -->
+    <script>
+        // Load header
+    fetch('../commons/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header').innerHTML = html;
+                MHProcurement.navigation.initMobileMenu();
+        });
+        
+        // Load footer
+        fetch('../commons/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;    
+            });
+
+       // Toggle Order List Modal
+        function toggleOrderList() {
+            const modal = document.getElementById('order-list-modal');
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+        
+        // Filter and Sort Products
+        function initializeFilters() {
+            const categoryFilter = document.getElementById('category-filter');
+            const sortFilter = document.getElementById('sort-filter');
+            const productsGrid = document.getElementById('products-grid');
+            const products = Array.from(productsGrid.children);
+            
+            function filterProducts() {
+                const selectedCategory = categoryFilter.value;
+                const sortBy = sortFilter.value;
+                
+                // Filter products
+                const filteredProducts = products.filter(product => {
+                    if (!selectedCategory) return true;
+                    return product.dataset.category === selectedCategory;
+                });
+                
+                // Sort products
+                filteredProducts.sort((a, b) => {
+                    switch (sortBy) {
+                        case 'name':
+                            return a.dataset.name.localeCompare(b.dataset.name);
+                        case 'price-low':
+                            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                        case 'price-high':
+                            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                        case 'category':
+                            return a.dataset.category.localeCompare(b.dataset.category);
+                        default:
+                            return 0;
+                    }
+                });
+                
+                // Clear and repopulate grid
+                productsGrid.innerHTML = '';
+                filteredProducts.forEach(product => {
+                    productsGrid.appendChild(product);
+                });
+                
+                // Hide non-matching products
+                products.forEach(product => {
+                    if (filteredProducts.includes(product)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+            
+            if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
+            if (sortFilter) sortFilter.addEventListener('change', filterProducts);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('order-list-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleOrderList();
+            }
+        });
+        
+        // Initialize page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFilters();
+        });
+    </script>
+    
+</body>
+</html>

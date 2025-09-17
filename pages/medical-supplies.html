@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medical Supplies for Municipal Hospital Outpatient Services - Browse essential medical supplies including gloves, syringes, bandages, and diagnostic tools">
+    <meta name="keywords" content="medical supplies, hospital procurement, gloves, syringes, bandages, medical equipment, healthcare supplies">
+    <meta name="author" content="Municipal Hospital IT Department">
+    <link rel="manifest" href="../manifest.json" />
+    <!-- Title -->
+    <title>Medical Supplies | MH Procurement Portal</title>
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icons/icon-192x192.png">
+<link href="../assets/css/output.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation Header (reuse same as other pages) -->
+    <div id="header"></div>
+    <!-- Breadcrumb Navigation -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2">
+                    <li>
+                        <a href="../index.html" class="text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </li>
+                    <li>
+                        <span class="text-blue-600 font-semibold">Medical Supplies</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-600 to-green-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between text-center md:text-left lg:text-left">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                        <i class="fas fa-stethoscope mr-3"></i>Medical Supplies
+                    </h1>
+                    <p class="text-xl opacity-90 max-w-2xl">
+                        Essential medical supplies for outpatient care including gloves, syringes, 
+                        bandages, and diagnostic tools meeting all medical standards.
+                    </p>
+                </div>
+                <div class="hidden md:block text-6xl opacity-20">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Filter and Search Section -->
+    <section class="bg-white py-6 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-md">
+                    <form id="search-form" class="relative">
+                        <input 
+                            type="search" 
+                            id="search-input"
+                            placeholder="Search medical supplies..." 
+                            class="form-input pr-12"
+                        >
+                        <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Filter Options -->
+                <div class="flex items-center gap-4">
+                    <select id="category-filter" class="form-input">
+                        <option value="">All Categories</option>
+                        <option value="protective">Protective Equipment</option>
+                        <option value="diagnostic">Diagnostic Tools</option>
+                        <option value="consumables">Consumables</option>
+                        <option value="wound-care">Wound Care</option>
+                        <option value="injection">Injection Supplies</option>
+                    </select>
+                    
+                    <select id="sort-filter" class="form-input">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="category">Category</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div id="search-results" class="text-center text-gray-600 mt-4"></div>
+        </div>
+    </section>
+    
+    <!-- Products Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid">
+                
+                <!-- Product Card: Nitrile Gloves -->
+                <div class="product-card card p-6" 
+                     data-id="med-001" 
+                     data-name="Nitrile Examination Gloves" 
+                     data-price="45.99" 
+                     data-category="protective"
+                     data-description="Powder-free nitrile examination gloves, size medium, box of 100">
+                    <div class="text-center mb-4">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-hand-paper text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Nitrile Examination Gloves</h3>
+                        <p class="text-gray-600 text-sm mb-3">Powder-free, latex-free protection for medical examinations</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-3">$45.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-box mr-1"></i>Box of 100 gloves
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="100">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-primary w-full">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>FDA Approved • <i class="fas fa-truck mr-1"></i>2-3 Days Delivery
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Digital Thermometer -->
+                <div class="product-card card p-6" 
+                     data-id="med-002" 
+                     data-name="Digital Thermometer" 
+                     data-price="24.99" 
+                     data-category="diagnostic"
+                     data-description="Fast-reading digital thermometer with fever alert">
+                    <div class="text-center mb-4">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-thermometer-half text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Digital Thermometer</h3>
+                        <p class="text-gray-600 text-sm mb-3">Fast-reading digital thermometer with fever alert</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-3">$24.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-1"></i>10-second reading
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="50">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-primary w-full">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>CE Certified • <i class="fas fa-truck mr-1"></i>Next Day Delivery
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Disposable Syringes -->
+                <div class="product-card card p-6" 
+                     data-id="med-003" 
+                     data-name="Disposable Syringes 10ml" 
+                     data-price="35.99" 
+                     data-category="injection"
+                     data-description="Sterile disposable syringes 10ml with luer lock, box of 100">
+                    <div class="text-center mb-4">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-syringe text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Disposable Syringes 10ml</h3>
+                        <p class="text-gray-600 text-sm mb-3">Sterile disposable syringes with luer lock connection</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-3">$35.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-box mr-1"></i>Box of 100 syringes
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="100">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-primary w-full">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>Sterile • <i class="fas fa-truck mr-1"></i>2-3 Days Delivery
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Adhesive Bandages -->
+                <div class="product-card card p-6" 
+                     data-id="med-004" 
+                     data-name="Adhesive Bandages Assorted" 
+                     data-price="18.99" 
+                     data-category="wound-care"
+                     data-description="Assorted sizes adhesive bandages, box of 200">
+                    <div class="text-center mb-4">
+                        <div class="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-band-aid text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Adhesive Bandages Assorted</h3>
+                        <p class="text-gray-600 text-sm mb-3">Assorted sizes for minor wound protection</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-3">$18.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-box mr-1"></i>Box of 200 bandages
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="50">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-primary w-full">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>Hypoallergenic • <i class="fas fa-truck mr-1"></i>Same Day
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Blood Pressure Monitor -->
+                <div class="product-card card p-6" 
+                     data-id="med-005" 
+                     data-name="Digital Blood Pressure Monitor" 
+                     data-price="89.99" 
+                     data-category="diagnostic"
+                     data-description="Automatic digital blood pressure monitor with cuff">
+                    <div class="text-center mb-4">
+                        <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-heartbeat text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Digital Blood Pressure Monitor</h3>
+                        <p class="text-gray-600 text-sm mb-3">Automatic digital BP monitor with large display</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-3">$89.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-memory mr-1"></i>Memory function
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="20">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-primary w-full">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>FDA Approved • <i class="fas fa-truck mr-1"></i>3-5 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Surgical Masks -->
+                <div class="product-card card p-6" 
+                     data-id="med-006" 
+                     data-name="Surgical Face Masks" 
+                     data-price="22.99" 
+                     data-category="protective"
+                     data-description="3-layer surgical face masks, box of 50">
+                    <div class="text-center mb-4">
+                        <div class="bg-teal-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-head-side-mask text-teal-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Surgical Face Masks</h3>
+                        <p class="text-gray-600 text-sm mb-3">3-layer protection with ear loops</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-3">$22.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-box mr-1"></i>Box of 50 masks
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="100">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-primary w-full">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>CE Marked • <i class="fas fa-truck mr-1"></i>Next Day
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Alcohol Wipes -->
+                <div class="product-card card p-6" 
+                     data-id="med-007" 
+                     data-name="Alcohol Prep Pads" 
+                     data-price="15.99" 
+                     data-category="consumables"
+                     data-description="Sterile alcohol prep pads 70% isopropyl, box of 200">
+                    <div class="text-center mb-4">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-soap text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Alcohol Prep Pads</h3>
+                        <p class="text-gray-600 text-sm mb-3">70% isopropyl alcohol antiseptic pads</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-3">$15.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-box mr-1"></i>Box of 200 pads
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="100">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-primary w-full">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>Sterile • <i class="fas fa-truck mr-1"></i>Same Day
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Pulse Oximeter -->
+                <div class="product-card card p-6" 
+                     data-id="med-008" 
+                     data-name="Finger Pulse Oximeter" 
+                     data-price="42.99" 
+                     data-category="diagnostic"
+                     data-description="Fingertip pulse oximeter with OLED display">
+                    <div class="text-center mb-4">
+                        <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-hand-pointer text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Finger Pulse Oximeter</h3>
+                        <p class="text-gray-600 text-sm mb-3">Measures oxygen saturation and pulse rate</p>
+                        <div class="text-2xl font-bold text-blue-600 mb-3">$42.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-mobile-alt mr-1"></i>OLED display
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="25">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-primary w-full">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>FDA Cleared • <i class="fas fa-truck mr-1"></i>2-3 Days
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="btn btn-outline text-lg px-8 py-3 bg-gray-500 rounded-full text-white">
+                    <i class="fas fa-plus mr-2"></i>Load More Products
+                </button>
+                <p class="text-gray-600 mt-4">Showing 8 of 150+ medical supplies</p>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Order List Modal -->
+    <div id="order-list-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-auto overflow-hidden">
+                <div class="p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Order List</h3>
+                        <button onclick="toggleOrderList()" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-2xl bg-gray-200 py-1 px-2"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 max-h-64 overflow-y-auto">
+                    <div id="cart-items"></div>
+                </div>
+                <div class="p-6 border-t bg-gray-50">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-semibold">Total: <span id="cart-total">$0.00</span></span>
+                        <div class="space-x-2">
+                            <button onclick="MHProcurement.cart.clearAll()" class="btn bg-gray-500 hover:bg-gray-600 text-white text-sm">
+                                Clear All
+                            </button>
+                            <button onclick="MHProcurement.pdf.generateOrderForm()" class="btn btn-primary text-sm">
+                                <i class="fas fa-download mr-1"></i>Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer (reuse existing footer) -->
+    <div id="footer"></div>
+    
+    <!-- Scripts -->
+    <!-- jsPDF for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="../assets/js/index.js"></script>
+    
+    <!-- Page-Specific JavaScript -->
+    <script>
+        // Load header
+    fetch('../commons/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header').innerHTML = html;
+                MHProcurement.navigation.initMobileMenu();
+        });
+        
+
+        // Toggle Order List Modal
+        function toggleOrderList() {
+            const modal = document.getElementById('order-list-modal');
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+        
+        // Filter and Sort Products
+        function initializeFilters() {
+            const categoryFilter = document.getElementById('category-filter');
+            const sortFilter = document.getElementById('sort-filter');
+            const productsGrid = document.getElementById('products-grid');
+            const products = Array.from(productsGrid.children);
+            
+            function filterProducts() {
+                const selectedCategory = categoryFilter.value;
+                const sortBy = sortFilter.value;
+                
+                // Filter products
+                const filteredProducts = products.filter(product => {
+                    if (!selectedCategory) return true;
+                    return product.dataset.category === selectedCategory;
+                });
+                
+                // Sort products
+                filteredProducts.sort((a, b) => {
+                    switch (sortBy) {
+                        case 'name':
+                            return a.dataset.name.localeCompare(b.dataset.name);
+                        case 'price-low':
+                            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                        case 'price-high':
+                            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                        case 'category':
+                            return a.dataset.category.localeCompare(b.dataset.category);
+                        default:
+                            return 0;
+                    }
+                });
+                
+                // Clear and repopulate grid
+                productsGrid.innerHTML = '';
+                filteredProducts.forEach(product => {
+                    productsGrid.appendChild(product);
+                });
+                
+                // Hide non-matching products
+                products.forEach(product => {
+                    if (filteredProducts.includes(product)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+            
+            if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
+            if (sortFilter) sortFilter.addEventListener('change', filterProducts);
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('order-list-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleOrderList();
+            }
+        });
+        
+        // Initialize page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFilters();
+        });
+        
+        // Load footer
+    fetch('../commons/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;    
+            });
+    </script>
+    
+</body>
+</html>

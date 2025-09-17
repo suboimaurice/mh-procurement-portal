@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and Title -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Contact the Municipal Hospital Outpatient Procurement Team for inquiries, support, and emergency requests." />
+    <meta name="keywords" content="contact, hospital procurement, support, outpatient services" />
+    <meta name="author" content="Municipal Hospital IT Department" />
+    <title>Contact Us | MH Procurement Portal</title>
+ <link rel="manifest" href="../manifest.json" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icons/icon-192x192.png">
+<link href="../assets/css/output.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation Header (reuse same as other pages) -->
+    <div id="header"></div>
+
+    <!-- Main Contact Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <section class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-hospital-blue mb-4">Contact Us</h1>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                For inquiries, support, or emergency orders, please reach out to the Municipal Hospital Outpatient Services Procurement Team.
+            </p>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-700">
+
+            <div class="space-y-8 text-left">
+                <h2 class="text-2xl font-semibold text-hospital-green mb-4">Contact Information</h2>
+                <p class="flex items-center mb-3"><i class="fas fa-hospital mr-3 text-2xl text-hospital-blue"></i>Municipal Hospital, 123 Healthcare Blvd, Medical District</p>
+                <p class="flex items-center mb-3"><i class="fas fa-phone mr-3 text-2xl text-hospital-blue"></i>+1 (555) 123-4567</p>
+                <p class="flex items-center mb-3"><i class="fas fa-envelope mr-3 text-2xl text-hospital-blue"></i><a href="mailto:procurement@municipalhospital.org" class="hover:underline">procurement@municipalhospital.org</a></p>
+                <p class="flex items-center"><i class="fas fa-clock mr-3 text-2xl text-hospital-blue"></i>Office Hours: Mon-Fri, 8am - 5pm</p>
+            </div>
+
+            <div class="text-left">
+                <h2 class="text-2xl font-semibold text-hospital-blue mb-4">Send Us a Message</h2>
+                <form id="contactForm" class="space-y-6 rounded-xl border border-gray-300 p-6 shadow-xl" onsubmit="MHProcurement.forms.bindContactForm(); return false;">
+                    <div>
+                        <label for="name" class="block mb-1 font-semibold">Name</label>
+                        <input type="text" id="name" name="name" required class="form-input w-full rounded-xl border border-gray-300 px-3 py-2" />
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-1 font-semibold">Email</label>
+                        <input type="email" id="email" name="email" required class="form-input w-full rounded-xl border border-gray-300 px-3 py-2" />
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-1 font-semibold">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="form-input w-full rounded-xl border border-gray-300 px-3 py-2"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full rounded-full py-6 md:py-3 lg:py-4 text-lg shadow-lg flex items-center justify-center">
+                        <i class="fas fa-paper-plane mr-2"></i>Send Message
+                    </button>
+                </form>
+                <p id="form-status" class="mt-4 text-green-600 font-semibold hidden"></p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer (reuse existing footer) -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/index.js"></script>
+    <script>
+        // Load header
+    fetch('../commons/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header').innerHTML = html;
+                MHProcurement.navigation.initMobileMenu();
+        });
+
+        function toggleOrderList() {
+            const modal = document.getElementById('order-list-modal');
+            if (modal) modal.classList.toggle('hidden');
+        }
+
+         // Handle contact form submission 
+        // // Simple contact form submission handler (mock)
+        // function submitContactForm(event) {
+        //     event.preventDefault();
+        //     const status = document.getElementById('form-status');
+        //     status.textContent = "Thank you for your message! We will get back to you shortly.";
+        //     status.classList.remove('hidden');
+        //     event.target.reset();
+        // }
+        
+        // Load footer
+    fetch('../commons/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+
+</body>
+</html>

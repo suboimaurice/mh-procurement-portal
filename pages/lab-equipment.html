@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab Equipment for Municipal Hospital - Browse high-quality laboratory equipment for accurate diagnostics and testing in outpatient services">
+    <meta name="keywords" content="lab equipment, laboratory instruments, microscopes, centrifuge, analyzers, hospital procurement">
+    <meta name="author" content="Municipal Hospital IT Department">
+    <link rel="manifest" href="../manifest.json" />
+    <!-- Title -->
+    <title>Lab Equipment | MH Procurement Portal</title>
+    
+    <!-- Favicon -->
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/images/icons/icon-192x192.png">
+    
+    <!-- Built Tailwind CSS -->
+    <link rel="stylesheet" href="../assets/css/output.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation Header (reuse same as other pages) -->
+    <div id="header"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2">
+                    <li>
+                        <a href="../index.html" class="text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </li>
+                    <li>
+                        <span class="text-blue-600 font-semibold">Lab Equipment</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-600 to-green-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                        <i class="fas fa-microscope mr-3"></i>Lab Equipment
+                    </h1>
+                    <p class="text-xl opacity-90 max-w-2xl">
+                        High-quality laboratory equipment for accurate diagnostics and testing 
+                        in outpatient services, all certified and calibrated.
+                    </p>
+                </div>
+                <div class="hidden md:block text-6xl opacity-30">
+                    <i class="fas fa-microscope"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Filter and Search Section -->
+    <section class="bg-white py-6 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-md">
+                    <form id="search-form" class="relative">
+                        <input 
+                            type="search" 
+                            id="search-input"
+                            placeholder="Search lab equipment..." 
+                            class="form-input pr-12 rounded-xl shadow-md border-orange-300"
+                        >
+                        <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Filter Options -->
+                <div class="flex items-center gap-4">
+                    <select id="category-filter" class="form-input rounded-xl border-orange-300">
+                        <option value="">All Categories</option>
+                        <option value="microscopy">Microscopy</option>
+                        <option value="analysis">Analysis Equipment</option>
+                        <option value="measurement">Measurement Tools</option>
+                        <option value="processing">Sample Processing</option>
+                        <option value="safety">Lab Safety</option>
+                    </select>
+                    
+                    <select id="sort-filter" class="form-input rounded-xl border-orange-300">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="category">Category</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div id="search-results" class="text-center text-gray-600 mt-4"></div>
+        </div>
+    </section>
+    
+    <!-- Products Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid">
+                
+                <!-- Product Card: Binocular Microscope -->
+                <div class="product-card card p-6" 
+                     data-id="lab-001" 
+                     data-name="Binocular Microscope" 
+                     data-price="1299.99" 
+                     data-category="microscopy"
+                     data-description="Professional binocular microscope with LED illumination, 40x-1000x magnification">
+                    <div class="text-left mb-4">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-microscope text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Binocular Microscope</h3>
+                        <p class="text-gray-600 text-sm mb-3">Professional grade with LED illumination</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$1,299.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-eye mr-1"></i>40x-1000x magnification
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="10">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline shadow-md w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-certificate mr-1"></i>ISO Certified • <i class="fas fa-truck mr-1"></i>5-7 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Centrifuge -->
+                <div class="product-card card p-6" 
+                     data-id="lab-002" 
+                     data-name="Desktop Centrifuge" 
+                     data-price="899.99" 
+                     data-category="processing"
+                     data-description="High-speed desktop centrifuge with digital display, 15000 RPM">
+                    <div class="text-left mb-4">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-sync-alt text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Desktop Centrifuge</h3>
+                        <p class="text-gray-600 text-sm mb-3">High-speed with digital display and timer</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$899.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-tachometer-alt mr-1"></i>Up to 15,000 RPM
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="5">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline shadow-md w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-certificate mr-1"></i>CE Certified • <i class="fas fa-truck mr-1"></i>7-10 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: pH Meter -->
+                <div class="product-card card p-6" 
+                     data-id="lab-003" 
+                     data-name="Digital pH Meter" 
+                     data-price="249.99" 
+                     data-category="measurement"
+                     data-description="Waterproof digital pH meter with automatic calibration">
+                    <div class="text-left mb-4">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-thermometer-quarter text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Digital pH Meter</h3>
+                        <p class="text-gray-600 text-sm mb-3">Waterproof with automatic calibration</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$249.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-droplet mr-1"></i>Range: 0-14 pH
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="20">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline shadow-md w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i>Calibrated • <i class="fas fa-truck mr-1"></i>3-5 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Autoclave -->
+                <div class="product-card card p-6" 
+                     data-id="lab-004" 
+                     data-name="Tabletop Autoclave" 
+                     data-price="2499.99" 
+                     data-category="safety"
+                     data-description="18L capacity tabletop autoclave with vacuum drying">
+                    <div class="text-left mb-4">
+                        <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-fire-alt text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Tabletop Autoclave</h3>
+                        <p class="text-gray-600 text-sm mb-3">18L capacity with vacuum drying system</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$2,499.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-cube mr-1"></i>18L capacity
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="3">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline shadow-md w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-certificate mr-1"></i>FDA Approved • <i class="fas fa-truck mr-1"></i>10-14 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Spectrophotometer -->
+                <div class="product-card card p-6" 
+                     data-id="lab-005" 
+                     data-name="UV-Vis Spectrophotometer" 
+                     data-price="3299.99" 
+                     data-category="analysis"
+                     data-description="UV-Visible spectrophotometer with computer interface">
+                    <div class="text-left mb-4">
+                        <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-wave-square text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">UV-Vis Spectrophotometer</h3>
+                        <p class="text-gray-600 text-sm mb-3">With computer interface and software</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$3,299.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-desktop mr-1"></i>Computer interface
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="2">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline shadow-md w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-certificate mr-1"></i>ISO Certified • <i class="fas fa-truck mr-1"></i>14-21 Days
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card: Balance Scale -->
+                <div class="product-card card p-6" 
+                     data-id="lab-006" 
+                     data-name="Analytical Balance" 
+                     data-price="1899.99" 
+                     data-category="measurement"
+                     data-description="Precision analytical balance 0.1mg readability">
+                    <div class="text-left mb-4">
+                        <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-balance-scale text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Analytical Balance</h3>
+                        <p class="text-gray-600 text-sm mb-3">High precision with 0.1mg readability</p>
+                        <div class="text-xl font-bold text-blue-600 mb-3">$1,899.99</div>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-crosshairs mr-1"></i>0.1mg precision
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="form-label text-sm">Quantity:</label>
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded-lg" value="1" min="1" max="5">
+                        </div>
+                        
+                        <button class="add-to-cart btn btn-outline shadow-md w-full bg-blue-500 rounded-full text-white">
+                            <i class="fas fa-plus mr-2"></i>Add to Order
+                        </button>
+                        
+                        <div class="text-xs text-blue-400 text-center">
+                            <i class="fas fa-certificate mr-1"></i>Calibrated • <i class="fas fa-truck mr-1"></i>7-10 Days
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="btn btn-outline text-lg px-8 py-3 rounded-full bg-gray-500 text-white">
+                    <i class="fas fa-plus mr-2"></i>Load More Equipment
+                </button>
+                <p class="text-gray-600 mt-4">Showing 6 of 75+ lab equipment items</p>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Order List Modal -->
+    <div id="order-list-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white rounded-xl max-w-2xl w-full max-h-auto overflow-hidden">
+                <div class="p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Order List</h3>
+                        <button onclick="toggleOrderList()" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-2xl bg-gray-200 py-1 px-2"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6 max-h-64 overflow-y-auto">
+                    <div id="cart-items"></div>
+                </div>
+                <div class="p-6 border-t bg-gray-50">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-semibold">Total: <span id="cart-total">$0.00</span></span>
+                        <div class="space-x-2">
+                            <button onclick="MHProcurement.cart.clearAll()" class="btn bg-gray-500 hover:bg-gray-600 text-white text-sm">
+                                Clear All
+                            </button>
+                            <button onclick="MHProcurement.pdf.generateOrderForm()" class="btn btn-primary text-sm">
+                                <i class="fas fa-download mr-1"></i>Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer (reuse existing footer) -->
+    <div id="footer"></div>
+    
+    <!-- Scripts -->
+    <!-- jsPDF for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="../assets/js/main.js"></script>
+    
+    <!-- Page-Specific JavaScript -->
+    <script>
+        // Load header
+        fetch('../commons/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;    
+            });
+
+            // Load footer
+        fetch('../commons/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;    
+            });
+            
+        function toggleOrderList() {
+            const modal = document.getElementById('order-list-modal');
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        // Filter and Sort Products
+        function initializeFilters() {
+            const categoryFilter = document.getElementById('category-filter');
+            const sortFilter = document.getElementById('sort-filter');
+            const productsGrid = document.getElementById('products-grid');
+            const products = Array.from(productsGrid.children);
+            
+            function filterProducts() {
+                const selectedCategory = categoryFilter.value;
+                const sortBy = sortFilter.value;
+                
+                // Filter products
+                const filteredProducts = products.filter(product => {
+                    if (!selectedCategory) return true;
+                    return product.dataset.category === selectedCategory;
+                });
+                
+                // Sort products
+                filteredProducts.sort((a, b) => {
+                    switch (sortBy) {
+                        case 'name':
+                            return a.dataset.name.localeCompare(b.dataset.name);
+                        case 'price-low':
+                            return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                        case 'price-high':
+                            return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                        case 'category':
+                            return a.dataset.category.localeCompare(b.dataset.category);
+                        default:
+                            return 0;
+                    }
+                });
+                
+                // Clear and repopulate grid
+                productsGrid.innerHTML = '';
+                filteredProducts.forEach(product => {
+                    productsGrid.appendChild(product);
+                });
+                
+                // Hide non-matching products
+                products.forEach(product => {
+                    if (filteredProducts.includes(product)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+            
+            if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
+            if (sortFilter) sortFilter.addEventListener('change', filterProducts);
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('order-list-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleOrderList();
+            }
+        });
+        
+        // Initialize page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFilters();
+        });
+    </script>
+    
+</body>
+</html>
