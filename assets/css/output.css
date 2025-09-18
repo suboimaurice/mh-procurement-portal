@@ -890,6 +890,16 @@ body {
   margin-right: auto;
 }
 
+.mx-2{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mx-3{
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -1034,8 +1044,16 @@ body {
   width: 100%;
 }
 
+.w-\[200px\]{
+  width: 200px;
+}
+
 .min-w-6{
   min-width: 1.5rem;
+}
+
+.min-w-\[300px\]{
+  min-width: 300px;
 }
 
 .max-w-2xl{
@@ -1087,8 +1105,20 @@ body {
   cursor: pointer;
 }
 
+.list-inside{
+  list-style-position: inside;
+}
+
+.list-outside{
+  list-style-position: outside;
+}
+
 .list-disc{
   list-style-type: disc;
+}
+
+.list-none{
+  list-style-type: none;
 }
 
 .grid-cols-1{
@@ -1274,6 +1304,20 @@ body {
   border-color: rgb(254 202 202 / var(--tw-border-opacity, 1));
 }
 
+.border-yellow-300{
+  --tw-border-opacity: 1;
+  border-color: rgb(253 224 71 / var(--tw-border-opacity, 1));
+}
+
+.border-yellow-600{
+  --tw-border-opacity: 1;
+  border-color: rgb(202 138 4 / var(--tw-border-opacity, 1));
+}
+
+.border-yellow-300\/30{
+  border-color: rgb(253 224 71 / 0.3);
+}
+
 .bg-\[\#753d01\]{
   --tw-bg-opacity: 1;
   background-color: rgb(117 61 1 / var(--tw-bg-opacity, 1));
@@ -1405,6 +1449,11 @@ body {
 .bg-yellow-100{
   --tw-bg-opacity: 1;
   background-color: rgb(254 249 195 / var(--tw-bg-opacity, 1));
+}
+
+.bg-yellow-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 224 71 / var(--tw-bg-opacity, 1));
 }
 
 .bg-yellow-500{
@@ -1543,6 +1592,14 @@ body {
 
 .pt-8{
   padding-top: 2rem;
+}
+
+.pb-2{
+  padding-bottom: 0.5rem;
+}
+
+.pb-4{
+  padding-bottom: 1rem;
 }
 
 .text-left{
@@ -1769,6 +1826,16 @@ body {
 .text-yellow-600{
   --tw-text-opacity: 1;
   color: rgb(202 138 4 / var(--tw-text-opacity, 1));
+}
+
+.text-yellow-700{
+  --tw-text-opacity: 1;
+  color: rgb(161 98 7 / var(--tw-text-opacity, 1));
+}
+
+.text-hospital-green{
+  --tw-text-opacity: 1;
+  color: rgb(5 150 105 / var(--tw-text-opacity, 1));
 }
 
 .no-underline{
@@ -2019,6 +2086,14 @@ body {
 }
 
 @media (min-width: 640px){
+  .sm\:min-w-\[300px\]{
+    min-width: 300px;
+  }
+
+  .sm\:min-w-\[200px\]{
+    min-width: 200px;
+  }
+
   .sm\:flex-row{
     flex-direction: row;
   }
@@ -2032,6 +2107,14 @@ body {
 @media (min-width: 768px){
   .md\:mb-4{
     margin-bottom: 1rem;
+  }
+
+  .md\:mb-16{
+    margin-bottom: 4rem;
+  }
+
+  .md\:mb-1{
+    margin-bottom: 0.25rem;
   }
 
   .md\:block{
@@ -2048,6 +2131,10 @@ body {
 
   .md\:w-1\/2{
     width: 50%;
+  }
+
+  .md\:min-w-\[300px\]{
+    min-width: 300px;
   }
 
   .md\:grid-cols-2{
@@ -2082,6 +2169,10 @@ body {
 
   .md\:text-left{
     text-align: left;
+  }
+
+  .md\:text-center{
+    text-align: center;
   }
 
   .md\:text-2xl{

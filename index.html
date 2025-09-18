@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Removed <base> to fix relative path issues for header/footer and assets -->
+    <base href="/mh-procurement-portal/">
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Municipal Hospital Outpatient Services Department Procurement Portal - Efficient sourcing of medical supplies, lab equipment, pharmaceuticals, and office materials">
     <meta name="keywords" content="hospital procurement, medical supplies, lab equipment, pharmaceuticals, municipal hospital, outpatient services">
     <meta name="author" content="Municipal Hospital IT Department">
+    <link href="/assets/css/output.css" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
     
     <!-- Title -->
@@ -18,7 +19,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icons/icon-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/images/icons/icon-512x512.png">
 
-    <link href="/assets/css/output.css" rel="stylesheet">
+    
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -51,10 +52,10 @@
                 for Municipal Hospital's Outpatient Services Department
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in">
-                <a href="#categories" class="btn text-lg px-8 py-4 rounded-full shadow-lg bg-orange-300 text-orange-900">
+                <a href="#categories" class="btn text-lg px-8 py-4 rounded-full shadow-lg bg-yellow-300 text-orange-900">
                     <i class="fas fa-boxes mr-2"></i>Browse Categories
                 </a>
-                <a href="/pages/how-it-works.html" class="btn border border-orange-300 text-orange-300 text-lg px-8 py-4 rounded-full shadow-lg">
+                <a href="/pages/how-it-works.html" class="btn border border-yellow-300 text-yellow-300 text-lg px-8 py-4 rounded-full shadow-lg">
                     <i class="fas fa-question-circle mr-2"></i>How It Works
                 </a>
             </div>
@@ -305,7 +306,7 @@
     <!-- Additional Page-Specific JavaScript -->
     <script>
         // Load header
-            fetch('commons/header.html')
+            fetch('/commons/header.html')
                         .then(response => response.text())
                         .then(data => {
                                 document.getElementById('header').innerHTML = data;
