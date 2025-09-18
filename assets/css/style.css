@@ -54,7 +54,7 @@
 
     /* Hero Section Styles */
     .hero-gradient {
-        background-image: radial-gradient(circle at center, rgba(51, 168, 82, 0.4) 0%, rgba(51, 168, 82, 0) 70%),
+        background-image: radial-gradient(circle at center, #753d01 0%, #33a852 50%),
                           linear-gradient(135deg, #33a852 0%, #2b8a42 100%);
     }
 

@@ -461,8 +461,24 @@ MHProcurement.search = {
   //PDF GENERATION                 //
   //================================
 
+MHProcurement.pdf.preloadImage = function(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'Anonymous'; // Handle CORS if needed
+        img.src = url;
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            resolve(canvas.toDataURL('image/png'));
+        };
+        img.onerror = () => reject(new Error('Failed to load image'));
+    });
+};
     // Generate order form PDF
-MHProcurement.pdf.generateOrderForm = function() {
+MHProcurement.pdf.generateOrderForm = async function() {
     if (!window.jspdf || !window.jspdf.jsPDF) {
         MHProcurement.utils.showToast('PDF generation not available', 'error');
         return;
@@ -471,7 +487,7 @@ MHProcurement.pdf.generateOrderForm = function() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     
-    // PDF Header
+    // Header
     doc.setFontSize(20);
     doc.text('Municipal Hospital - Procurement Order Form', 20, 30);
     
@@ -529,6 +545,20 @@ MHProcurement.pdf.generateOrderForm = function() {
     yPosition += 10;
     doc.text(`Phone: ${MHProcurement.config.contactPhone}`, 20, yPosition);
     
+   // Add logo to the right side of the footer
+    try {
+        const logoPath = 'http://127.0.0.1:5500/mh-procurement-portal/assets/images/logo.png'; 
+        const logoDataUrl = await MHProcurement.pdf.preloadImage(logoPath);
+        const logoWidth = 20; 
+        const logoHeight = 20; 
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const logoX = pageWidth - logoWidth - 20; 
+        doc.addImage(logoDataUrl, 'PNG', logoX, yPosition - 15, logoWidth, logoHeight);
+    } catch (error) {
+        console.error('Failed to add logo to PDF:', error);
+        MHProcurement.utils.showToast('Failed to add logo to PDF', 'error');
+    }
+
     // Save PDF
     doc.save('MH_Procurement_Order_Form.pdf');
     
@@ -537,20 +567,15 @@ MHProcurement.pdf.generateOrderForm = function() {
 
 /**
  * ==========================
- * INITIALIZATION
+ * INITIALIZATION           //
  * ==========================
- */
-
-/**
- * Initialize the application when DOM is loaded
  */
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all modules
-    // Navigation initialization moved to header fetch callback in index.html
     MHProcurement.cart.init();
     MHProcurement.forms.init();
     
-    // Add fade-in animation to main content
+    // Add fade-in animation 
     const mainContent = document.querySelector('main');
     if (mainContent) {
         mainContent.classList.add('fade-in');

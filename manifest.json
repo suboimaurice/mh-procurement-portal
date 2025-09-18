@@ -7,6 +7,7 @@
   "display": "standalone",
   "background_color": "#e8f6e8",
   "theme_color": "#33a852",
+  "image": "assets/images/logo.png",
   "icons": [
     {
       "src": "assets/images/icons/icon-72x72.png",

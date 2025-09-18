@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/mh-procurement-portal/">
+    <!-- Removed <base> to fix relative path issues for header/footer and assets -->
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icons/icon-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/images/icons/icon-512x512.png">
 
-    <link href="assets/css/output.css" rel="stylesheet">
+    <link href="/assets/css/output.css" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,7 +28,7 @@
     <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/mh-procurement-portal/service-worker.js').then(registration => {
+      navigator.serviceWorker.register('/mh-procurement-portal/service-worker.js', { scope: '/mh-procurement-portal/' }).then(registration => {
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
       }).catch(err => {
         console.log('ServiceWorker registration failed: ', err);
@@ -54,7 +54,7 @@
                 <a href="#categories" class="btn text-lg px-8 py-4 rounded-full shadow-lg bg-orange-300 text-orange-900">
                     <i class="fas fa-boxes mr-2"></i>Browse Categories
                 </a>
-                <a href="pages/how-it-works.html" class="btn border border-orange-300 text-orange-300 text-lg px-8 py-4 rounded-full shadow-lg">
+                <a href="/pages/how-it-works.html" class="btn border border-orange-300 text-orange-300 text-lg px-8 py-4 rounded-full shadow-lg">
                     <i class="fas fa-question-circle mr-2"></i>How It Works
                 </a>
             </div>
@@ -109,7 +109,7 @@
                         <span><i class="fas fa-box mr-1"></i>150+ Items</span>
                         <span><i class="fas fa-truck mr-1"></i>Fast Delivery</span>
                     </div>
-                    <a href="pages/medical-supplies.html" class="btn btn-primary w-full rounded-full">
+                    <a href="/pages/medical-supplies.html" class="btn btn-primary w-full rounded-full">
                         Browse Medical Supplies
                     </a>
                 </div>
@@ -128,7 +128,7 @@
                         <span><i class="fas fa-box mr-1"></i>75+ Items</span>
                         <span><i class="fas fa-certificate mr-1"></i>Certified</span>
                     </div>
-                    <a href="pages/lab-equipment.html" class="btn btn-primary w-full rounded-full">
+                    <a href="/pages/lab-equipment.html" class="btn btn-primary w-full rounded-full">
                         Browse Lab Equipment
                     </a>
                 </div>
@@ -147,7 +147,7 @@
                         <span><i class="fas fa-box mr-1"></i>200+ Items</span>
                         <span><i class="fas fa-shield-alt mr-1"></i>FDA Approved</span>
                     </div>
-                    <a href="pages/pharmaceuticals.html" class="btn btn-primary w-full rounded-full">
+                    <a href="/pages/pharmaceuticals.html" class="btn btn-primary w-full rounded-full">
                         Browse Pharmaceuticals
                     </a>
                 </div>
@@ -166,7 +166,7 @@
                         <span><i class="fas fa-box mr-1"></i>100+ Items</span>
                         <span><i class="fas fa-clock mr-1"></i>Next Day</span>
                     </div>
-                    <a href="pages/office-supplies.html" class="btn btn-primary w-full rounded-full">
+                    <a href="/pages/office-supplies.html" class="btn btn-primary w-full rounded-full">
                         Browse Office Supplies
                     </a>
                 </div>
@@ -185,7 +185,7 @@
                         <span><i class="fas fa-tools mr-1"></i>25+ Services</span>
                         <span><i class="fas fa-user-tie mr-1"></i>Expert Staff</span>
                     </div>
-                    <a href="pages/services.html" class="btn btn-primary w-full rounded-full">
+                    <a href="/pages/services.html" class="btn btn-primary w-full rounded-full">
                         Browse Services
                     </a>
                 </div>
@@ -204,7 +204,7 @@
                         <span><i class="fas fa-phone mr-1"></i>24/7 Support</span>
                         <span><i class="fas fa-bolt mr-1"></i>Same Day</span>
                     </div>
-                    <a href="pages/emergency-contact.html" class="btn bg-red-600 hover:bg-red-700 text-white w-full rounded-full shadow-md">
+                    <a href="/pages/emergency-contact.html" class="btn bg-red-600 hover:bg-red-700 text-white w-full rounded-full shadow-md">
                         Emergency Contact
                     </a>
                 </div>
@@ -305,17 +305,20 @@
     <!-- Additional Page-Specific JavaScript -->
     <script>
         // Load header
-                fetch('commons/header.html')
+            fetch('commons/header.html')
                         .then(response => response.text())
                         .then(data => {
                                 document.getElementById('header').innerHTML = data;
-                                const btn = document.getElementById('mobile-menu-button');
-                                const menu = document.getElementById('mobile-menu');
-                                if (btn && menu) {
-                                    btn.addEventListener('click', function() {
-                                        menu.classList.toggle('hidden');
-                                    });
-                                }
+                                // Wait for header injection before attaching event
+                                setTimeout(() => {
+                                    const btn = document.getElementById('mobile-menu-button');
+                                    const menu = document.getElementById('mobile-menu');
+                                    if (btn && menu) {
+                                        btn.addEventListener('click', function() {
+                                            menu.classList.toggle('hidden');
+                                        });
+                                    }
+                                }, 0);
                                 // Only highlight active nav link after header is loaded
                                 if (window.MHProcurement && MHProcurement.navigation) {
                                         MHProcurement.navigation.highlightActiveLink();
@@ -323,11 +326,14 @@
                         });
 
         // Load footer
-        fetch('commons/footer.html')
+        fetch('/commons/footer.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('footer').innerHTML = data;    
+                document.getElementById('footer').innerHTML = data;
+                document.getElementById('year').innerHTML = new Date().getFullYear();    
             });
+            
+        
         
         // Toggle Order List
         function toggleOrderList() {
