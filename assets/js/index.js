@@ -604,19 +604,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all modules
     MHProcurement.cart.init();
     MHProcurement.forms.init();
-    
+
     // Initialize mobile menu if header is already loaded
     // (This handles cases where header might be loaded synchronously)
     MHProcurement.navigation.initMobileMenu();
-    
+
     // Add fade-in animation
     const mainContent = document.querySelector('main');
     if (mainContent) {
         mainContent.classList.add('fade-in');
     }
-    
+
+    // Close modal when clicking outside
+    const orderListModal = document.getElementById('order-list-modal');
+    if (orderListModal) {
+        orderListModal.addEventListener('click', function (e) {
+            if (e.target === this) {
+                toggleOrderList();
+            }
+        });
+    }
+
     console.log(`MH Procurement Website v${MHProcurement.config.version} initialized successfully`);
 });
+
+// Global function for order list modal
+function toggleOrderList() {
+    const modal = document.getElementById('order-list-modal');
+    if (modal) {
+        modal.classList.toggle('hidden');
+    }
+}
 
 // Ensure global access for inline scripts
 window.MHProcurement = MHProcurement;
