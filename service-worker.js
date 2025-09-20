@@ -1,49 +1,51 @@
 const CACHE_NAME = 'mh-procurement-cache-v1';
 const urlsToCache = [
-  '/mh-procurement-portal/', // Cache the root index.html
+  '/', // Cache the root
+  '/index.html', // Cache the main index.html
   '/manifest.json',
-  'mh-procurement-portal/pages/about.html',
-  'mh-procurement-portal/pages/contact.html',
-  'mh-procurement-portal/pages/medical-supplies.html',
-  'mh-procurement-portal/pages/office-supplies.html',
-  'mh-procurement-portal/pages/pharmaceuticals.html',
-  'mh-procurement-portal/pages/services.html',
-  'mh-procurement-portal/pages/how-it-works.html',
-  'mh-procurement-portal/pages/lab-equipment.html',
-  'mh-procurement-portal/pages/emergency-contact.html',
-  'mh-procurement-portal/commons/header.html',
-  'mh-procurement-portal/commons/footer.html',
+  '/pages/about.html',
+  '/pages/contact.html',
+  '/pages/medical-supplies.html',
+  '/pages/office-supplies.html',
+  '/pages/pharmaceuticals.html',
+  '/pages/services.html',
+  '/pages/how-it-works.html',
+  '/pages/lab-equipment.html',
+  '/pages/emergency-contact.html',
+  '/commons/header.html',
+  '/commons/footer.html',
 
-  'mh-procurement-portal/assets/css/style.css',
-  'mh-procurement-portal/assets/css/output.css',
-  'mh-procurement-portal/assets/js/index.js',
-  // In service-worker.js
-'http://127.0.0.1:5500/mh-procurement-portal/assets/images/logo.png',
-  'mh-procurement-portal/assets/images/icons/icon-72x72.png',
-  'mh-procurement-portal/assets/images/icons/icon-192x192.png',
-  'mh-procurement-portal/assets/images/icons/icon-512x512.png',
+  '/assets/css/style.css',
+  '/assets/css/output.css',
+  '/assets/js/index.js',
+  '/assets/images/logo.png',
+  '/assets/images/icons/icon-72x72.png',
+  '/assets/images/icons/manifest-icon-192.maskable.png',
+  '/assets/images/icons/manifest-icon-512.maskable.png',
+
+    // Screenshots for PWA install prompt
+  '/assets/images/screenshots/homepage-wide.png',
+  '/assets/images/screenshots/homepage-mobile.png',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
 
 ];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
         console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
   );
 });
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(response => {
+        if (response) { 
           return response;
-        }
-        return fetch(event.request);
+         }
+        return fetch(e.request);
       })
   );
 });

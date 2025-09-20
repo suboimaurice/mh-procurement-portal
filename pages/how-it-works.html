@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <base href="/mh-procurement-portal/">
+    <base href="/">
     <!-- Meta and Title -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="How the Municipal Hospital Procurement Portal Works - Step-by-step guide to efficient outpatient procurement" />
-    <meta name="keywords" content="hospital procurement process, how it works, purchasing steps, outpatient procurement" />
+    <meta name="description"
+        content="How the Municipal Hospital Procurement Portal Works - Step-by-step guide to efficient outpatient procurement" />
+    <meta name="keywords"
+        content="hospital procurement process, how it works, purchasing steps, outpatient procurement" />
     <meta name="author" content="Municipal Hospital IT Department" />
     <link rel="manifest" href="/manifest.json" />
     <title>How It Works | MH Procurement Portal</title>
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="/assets/images/icons/icon-72x72.png">
 
-<link href="/assets/css/output.css" rel="stylesheet">
+
+    <link href="/assets/css/output.css" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-   
 </head>
+
 <body class="bg-gray-50">
 
     <!-- Navigation Header (reuse same as other pages) -->
@@ -36,37 +40,46 @@
         <section class="grid grid-cols-1 md:grid-cols-3 gap-10 text-gray-700">
             <!-- Step 1 -->
             <div class="flex flex-col items-center px-6">
-                <div class="bg-green-100 text-white rounded-full w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
+                <div
+                    class="bg-green-100 text-white rounded-full w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
                     <i class="fas fa-search fa-2x text-orange-300"></i>
                 </div>
                 <h2 class="text-xl font-semibold mb-2 text-green-400">1. Browse Categories</h2>
-                <p class="text-center">Departments select required medical supplies, lab equipment, pharmaceuticals, or services from organized categories.</p>
+                <p class="text-center">Departments select required medical supplies, lab equipment, pharmaceuticals, or
+                    services from organized categories.</p>
             </div>
 
             <!-- Step 2 -->
             <div class="flex flex-col items-center px-6">
-                <div class="bg-green-100 text-white rounded-full w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
+                <div
+                    class="bg-green-100 text-white rounded-full w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
                     <i class="fas fa-cart-plus fa-2x text-orange-300"></i>
                 </div>
                 <h2 class="text-xl font-semibold mb-2 text-green-400">2. Add To Order</h2>
-                <p class="text-center">Specify quantity and add needed items to your order list for consolidated procurement.</p>
+                <p class="text-center">Specify quantity and add needed items to your order list for consolidated
+                    procurement.</p>
             </div>
 
             <!-- Step 3 -->
             <div class="flex flex-col items-center px-6">
-                <div class="bg-green-100 text-white rounded-full w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
+                <div
+                    class="bg-green-100 text-white rounded-full w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
                     <i class="fas fa-file-invoice-dollar fa-2x text-orange-300"></i>
                 </div>
                 <h2 class="text-xl font-semibold mb-2 text-green-400">3. Review & Submit</h2>
-                <p class="text-center">Review the compiled order, download a <span class="text-orange-600 font-semibold">PDF</span> form if needed, and submit for procurement processing.</p>
+                <p class="text-center">Review the compiled order, download a <span
+                        class="text-orange-600 font-semibold">PDF</span> form if needed, and submit for procurement
+                    processing.</p>
             </div>
         </section>
 
         <section class="mt-16 text-center">
             <h2 class="text-3xl font-bold text-green-400 mb-6">Our Commitment to You</h2>
             <p class="max-w-3xl mx-auto text-gray-600">
-                Our portal aims to increase efficiency, transparency, and quality assurance through every step of the procurement cycle,
-                providing <span><span class="text-orange-600 font-semibold">24/7</span> assistance and <span class="text-orange-600 font-semibold">same day</span> delivery for urgent needs.
+                Our portal aims to increase efficiency, transparency, and quality assurance through every step of the
+                procurement cycle,
+                providing <span><span class="text-orange-600 font-semibold">24/7</span> assistance and <span
+                        class="text-orange-600 font-semibold">same day</span> delivery for urgent needs.
             </p>
         </section>
     </main>
@@ -79,20 +92,21 @@
     <script src="/assets/js/index.js"></script>
     <script>
         // Load header
-    fetch('/commons/header.html')
+        fetch('/commons/header.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('header').innerHTML = html;
                 MHProcurement.navigation.initMobileMenu();
-        });
+                MHProcurement.navigation.highlightActiveLink();
+            });
         // Navigation toggles and modal logic here, same as other pages
         function toggleOrderList() {
             const modal = document.getElementById('order-list-modal');
             if (modal) modal.classList.toggle('hidden');
         }
-        
+
         // Load footer
-    fetch('/commons/footer.html')
+        fetch('/commons/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;
@@ -100,4 +114,5 @@
     </script>
 
 </body>
+
 </html>

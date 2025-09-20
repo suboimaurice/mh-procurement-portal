@@ -881,13 +881,16 @@ body {
   top: 45%;
 }
 
-.z-50{
-  z-index: 50;
+.right-0{
+  right: 0px;
 }
 
-.mx-auto{
-  margin-left: auto;
-  margin-right: auto;
+.top-full{
+  top: 100%;
+}
+
+.z-50{
+  z-index: 50;
 }
 
 .mx-2{
@@ -895,9 +898,9 @@ body {
   margin-right: 0.5rem;
 }
 
-.mx-3{
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mb-1{
@@ -1016,6 +1019,14 @@ body {
   max-height: 24rem;
 }
 
+.max-h-48{
+  max-height: 12rem;
+}
+
+.max-h-\[80vh\]{
+  max-height: 80vh;
+}
+
 .min-h-\[400px\]{
   min-height: 400px;
 }
@@ -1044,16 +1055,8 @@ body {
   width: 100%;
 }
 
-.w-\[200px\]{
-  width: 200px;
-}
-
 .min-w-6{
   min-width: 1.5rem;
-}
-
-.min-w-\[300px\]{
-  min-width: 300px;
 }
 
 .max-w-2xl{
@@ -1103,18 +1106,6 @@ body {
 
 .cursor-pointer{
   cursor: pointer;
-}
-
-.list-inside{
-  list-style-position: inside;
-}
-
-.list-outside{
-  list-style-position: outside;
-}
-
-.list-disc{
-  list-style-type: disc;
 }
 
 .list-none{
@@ -1167,6 +1158,10 @@ body {
 
 .gap-8{
   gap: 2rem;
+}
+
+.gap-2{
+  gap: 0.5rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -1269,11 +1264,6 @@ body {
   border-top-width: 1px;
 }
 
-.border-blue-600{
-  --tw-border-opacity: 1;
-  border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
-}
-
 .border-gray-300{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
@@ -1307,11 +1297,6 @@ body {
 .border-yellow-300{
   --tw-border-opacity: 1;
   border-color: rgb(253 224 71 / var(--tw-border-opacity, 1));
-}
-
-.border-yellow-600{
-  --tw-border-opacity: 1;
-  border-color: rgb(202 138 4 / var(--tw-border-opacity, 1));
 }
 
 .border-yellow-300\/30{
@@ -1461,6 +1446,22 @@ body {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
 
+.bg-blue-700\/0{
+  background-color: rgb(29 78 216 / 0);
+}
+
+.bg-blue-700\/70{
+  background-color: rgb(29 78 216 / 0.7);
+}
+
+.bg-blue-700\/20{
+  background-color: rgb(29 78 216 / 0.2);
+}
+
+.bg-blue-700\/95{
+  background-color: rgb(29 78 216 / 0.95);
+}
+
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
@@ -1497,6 +1498,10 @@ body {
 
 .p-8{
   padding: 2rem;
+}
+
+.p-4{
+  padding: 1rem;
 }
 
 .px-2{
@@ -1574,12 +1579,8 @@ body {
   padding-bottom: 2rem;
 }
 
-.pb-3{
-  padding-bottom: 0.75rem;
-}
-
-.pl-5{
-  padding-left: 1.25rem;
+.pb-2{
+  padding-bottom: 0.5rem;
 }
 
 .pr-12{
@@ -1592,14 +1593,6 @@ body {
 
 .pt-8{
   padding-top: 2rem;
-}
-
-.pb-2{
-  padding-bottom: 0.5rem;
-}
-
-.pb-4{
-  padding-bottom: 1rem;
 }
 
 .text-left{
@@ -1763,6 +1756,11 @@ body {
   color: rgb(37 99 235 / var(--tw-text-opacity, 1));
 }
 
+.text-hospital-green{
+  --tw-text-opacity: 1;
+  color: rgb(5 150 105 / var(--tw-text-opacity, 1));
+}
+
 .text-indigo-600{
   --tw-text-opacity: 1;
   color: rgb(79 70 229 / var(--tw-text-opacity, 1));
@@ -1781,11 +1779,6 @@ body {
 .text-orange-600{
   --tw-text-opacity: 1;
   color: rgb(234 88 12 / var(--tw-text-opacity, 1));
-}
-
-.text-orange-700{
-  --tw-text-opacity: 1;
-  color: rgb(194 65 12 / var(--tw-text-opacity, 1));
 }
 
 .text-orange-900{
@@ -1826,16 +1819,6 @@ body {
 .text-yellow-600{
   --tw-text-opacity: 1;
   color: rgb(202 138 4 / var(--tw-text-opacity, 1));
-}
-
-.text-yellow-700{
-  --tw-text-opacity: 1;
-  color: rgb(161 98 7 / var(--tw-text-opacity, 1));
-}
-
-.text-hospital-green{
-  --tw-text-opacity: 1;
-  color: rgb(5 150 105 / var(--tw-text-opacity, 1));
 }
 
 .no-underline{
@@ -2086,16 +2069,20 @@ body {
 }
 
 @media (min-width: 640px){
-  .sm\:min-w-\[300px\]{
-    min-width: 300px;
+  .sm\:max-h-64{
+    max-height: 16rem;
   }
 
-  .sm\:min-w-\[200px\]{
-    min-width: 200px;
+  .sm\:max-h-96{
+    max-height: 24rem;
   }
 
   .sm\:flex-row{
     flex-direction: row;
+  }
+
+  .sm\:p-6{
+    padding: 1.5rem;
   }
 
   .sm\:px-6{
@@ -2105,16 +2092,12 @@ body {
 }
 
 @media (min-width: 768px){
-  .md\:mb-4{
-    margin-bottom: 1rem;
-  }
-
   .md\:mb-16{
     margin-bottom: 4rem;
   }
 
-  .md\:mb-1{
-    margin-bottom: 0.25rem;
+  .md\:mb-4{
+    margin-bottom: 1rem;
   }
 
   .md\:block{
@@ -2131,10 +2114,6 @@ body {
 
   .md\:w-1\/2{
     width: 50%;
-  }
-
-  .md\:min-w-\[300px\]{
-    min-width: 300px;
   }
 
   .md\:grid-cols-2{

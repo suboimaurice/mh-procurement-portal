@@ -16,9 +16,7 @@ const MHProcurement = {
         version: '1.0.0'
     },
 
-    // Utility functions,Navigation handling,
-    // Form handling,Shopping cart functionality,
-    // PDF generation
+    // Utility funcs,Navigation,Form ,Shopping cart,PDF generation
     utils: {}, navigation: {}, forms: {}, cart: {}, pdf: {}
 };
 
@@ -122,7 +120,6 @@ MHProcurement.navigation.initMobileMenu = function() {
         mobileMenuButton.addEventListener('click', function() {
             const isOpen = mobileMenu.classList.contains('hidden');
             
-
             if (isOpen) {
                 mobileMenu.classList.remove('hidden');
                 mobileMenuButton.setAttribute('aria-expanded', 'true');
@@ -137,17 +134,36 @@ MHProcurement.navigation.initMobileMenu = function() {
 // Highlight active navigation link based on current URL
 MHProcurement.navigation.highlightActiveLink = function() {
     const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+
+    // Get all navigation links including dropdown links
+    const allNavLinks = document.querySelectorAll('a[href]');
+
+    allNavLinks.forEach(link => {
         let linkPath;
         try {
             linkPath = new URL(link.href, window.location.origin).pathname;
         } catch (e) {
             return; // Skip invalid URLs
         }
+
         if (linkPath === currentPath) {
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'page');
+            // Add active class to nav-link elements
+            if (link.classList.contains('nav-link')) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            }
+
+            // Handle dropdown links (desktop)
+            if (link.classList.contains('block') && link.closest('.group')) {
+                link.classList.remove('text-gray-700', 'hover:bg-blue-50', 'hover:text-blue-700');
+                link.classList.add('text-blue-700', 'bg-blue-50', 'font-semibold');
+            }
+
+            // Handle mobile menu links
+            if (link.classList.contains('block') && link.closest('#mobile-menu')) {
+                link.classList.remove('text-gray-300');
+                link.classList.add('text-yellow-300', 'font-semibold');
+            }
         }
     });
 };
@@ -283,16 +299,21 @@ MHProcurement.cart.loadFromStorage = function() {
 
  // Update cart display in UI
 MHProcurement.cart.updateCartDisplay = function() {
-    const cartCount = document.getElementById('cart-count');
-    const cartItems = document.getElementById('cart-items');
-    const cartTotal = document.getElementById('cart-total');
-    
-    // Update cart count
-    if (cartCount) {
-        const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
-        cartCount.textContent = totalItems;
-        cartCount.style.display = totalItems > 0 ? 'inline' : 'none';
-    }
+   const cartCount = document.getElementById('cart-count');
+   const cartCountMobile = document.getElementById('cart-count-mobile');
+   const cartItems = document.getElementById('cart-items');
+   const cartTotal = document.getElementById('cart-total');
+
+   // Update cart count
+   const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
+   if (cartCount) {
+       cartCount.textContent = totalItems;
+       cartCount.style.display = totalItems > 0 ? 'inline' : 'none';
+   }
+   if (cartCountMobile) {
+       cartCountMobile.textContent = totalItems;
+       cartCountMobile.style.display = totalItems > 0 ? 'inline' : 'none';
+   }
     
     // Update cart items display
     if (cartItems) {
@@ -462,21 +483,28 @@ MHProcurement.search = {
   //================================
 
 MHProcurement.pdf.preloadImage = function(url) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.crossOrigin = 'Anonymous'; // Handle CORS if needed
-        img.src = url;
-        img.onload = () => {
-            const canvas = document.createElement('canvas');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-            resolve(canvas.toDataURL('image/png'));
-        };
-        img.onerror = () => reject(new Error('Failed to load image'));
-    });
-};
+     return new Promise((resolve, reject) => {
+         const img = new Image();
+         img.crossOrigin = 'Anonymous'; // Handle CORS if needed
+         img.onload = () => {
+             try {
+                 const canvas = document.createElement('canvas');
+                 canvas.width = img.width;
+                 canvas.height = img.height;
+                 const ctx = canvas.getContext('2d');
+                 ctx.drawImage(img, 0, 0);
+                 resolve(canvas.toDataURL('image/png'));
+             } catch (error) {
+                 reject(new Error('Failed to process image: ' + error.message));
+             }
+         };
+         img.onerror = (e) => {
+             console.warn('Image failed to load:', url, e);
+             reject(new Error('Failed to load image from: ' + url));
+         };
+         img.src = url;
+     });
+ };
     // Generate order form PDF
 MHProcurement.pdf.generateOrderForm = async function() {
     if (!window.jspdf || !window.jspdf.jsPDF) {
@@ -547,16 +575,18 @@ MHProcurement.pdf.generateOrderForm = async function() {
     
    // Add logo to the right side of the footer
     try {
-        const logoPath = 'http://127.0.0.1:5500/mh-procurement-portal/assets/images/logo.png'; 
+        const logoPath = '/assets/images/logo.png';
         const logoDataUrl = await MHProcurement.pdf.preloadImage(logoPath);
-        const logoWidth = 20; 
-        const logoHeight = 20; 
+        const logoWidth = 20;
+        const logoHeight = 20;
         const pageWidth = doc.internal.pageSize.getWidth();
-        const logoX = pageWidth - logoWidth - 20; 
+        const logoX = pageWidth - logoWidth - 20;
         doc.addImage(logoDataUrl, 'PNG', logoX, yPosition - 15, logoWidth, logoHeight);
+        console.log('Logo successfully added to PDF');
     } catch (error) {
-        console.error('Failed to add logo to PDF:', error);
-        MHProcurement.utils.showToast('Failed to add logo to PDF', 'error');
+        console.warn('Failed to add logo to PDF, continuing without logo:', error.message);
+        // Don't show error toast for logo failure - PDF will still be generated
+        // MHProcurement.utils.showToast('Logo not available, PDF generated without logo', 'warning');
     }
 
     // Save PDF
@@ -575,7 +605,11 @@ document.addEventListener('DOMContentLoaded', function() {
     MHProcurement.cart.init();
     MHProcurement.forms.init();
     
-    // Add fade-in animation 
+    // Initialize mobile menu if header is already loaded
+    // (This handles cases where header might be loaded synchronously)
+    MHProcurement.navigation.initMobileMenu();
+    
+    // Add fade-in animation
     const mainContent = document.querySelector('main');
     if (mainContent) {
         mainContent.classList.add('fade-in');

@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- <base href="/mh-procurement-portal/">
+    <base href="/">
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pharmaceuticals for Municipal Hospital - Browse essential medications including antibiotics, pain relievers, IV solutions, and emergency drugs">
-    <meta name="keywords" content="pharmaceuticals, medications, antibiotics, pain relievers, IV solutions, insulin, hospital procurement">
+    <meta name="description"
+        content="Pharmaceuticals for Municipal Hospital - Browse essential medications including antibiotics, pain relievers, IV solutions, and emergency drugs">
+    <meta name="keywords"
+        content="pharmaceuticals, medications, antibiotics, pain relievers, IV solutions, insulin, hospital procurement">
     <meta name="author" content="Municipal Hospital IT Department">
     <link rel="manifest" href="/manifest.json" />
     <!-- Title -->
     <title>Pharmaceuticals | MH Procurement Portal</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icons/icon-192x192.png">
-    
-<link href="/assets/css/output.css" rel="stylesheet">
-    
+    <link rel="icon" type="image/png" sizes="72x72" href="/assets/images/icons/icon-72x72.png">
+
+
+    <link href="/assets/css/output.css" rel="stylesheet">
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
 </head>
+
 <body class="bg-gray-50">
 
     <!-- Load Header -->
@@ -46,7 +51,7 @@
             </nav>
         </div>
     </div>
-    
+
     <!-- Page Header -->
     <section class="bg-gradient-to-r from-green-600 to-green-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,7 +61,7 @@
                         <i class="fas fa-pills mr-3"></i>Pharmaceuticals
                     </h1>
                     <p class="text-xl opacity-90 max-w-2xl">
-                        Essential medications and pharmaceutical products for outpatient care including 
+                        Essential medications and pharmaceutical products for outpatient care including
                         antibiotics, pain relief, IV solutions, and emergency medications.
                     </p>
                 </div>
@@ -66,27 +71,24 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Filter and Search Section -->
     <section class="bg-white py-6 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
-                
+
                 <!-- Search Bar -->
                 <div class="flex-1 max-w-md">
                     <form id="search-form" class="relative">
-                        <input 
-                            type="search" 
-                            id="search-input"
-                            placeholder="Search pharmaceuticals..." 
-                            class="form-input pr-12 border-orange-300 rounded-xl shadow-md"
-                        >
-                        <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600">
+                        <input type="search" id="search-input" placeholder="Search pharmaceuticals..."
+                            class="form-input pr-12 border-orange-300 rounded-xl shadow-md">
+                        <button type="submit"
+                            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600">
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
                 </div>
-                
+
                 <!-- Filter Options -->
                 <div class="flex items-center gap-4">
                     <select id="category-filter" class="form-input border-orange-300 rounded-xl">
@@ -98,7 +100,7 @@
                         <option value="emergency">Emergency Medications</option>
                         <option value="vaccines">Vaccines</option>
                     </select>
-                    
+
                     <select id="sort-filter" class="form-input border-orange-300 rounded-xl">
                         <option value="name">Sort by Name</option>
                         <option value="price-low">Price: Low to High</option>
@@ -106,25 +108,22 @@
                         <option value="category">Category</option>
                     </select>
                 </div>
-                
+
             </div>
             <div id="search-results" class="text-center text-gray-600 mt-4"></div>
         </div>
     </section>
-    
+
     <!-- Products Grid -->
     <section class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid">
-                
+
                 <!-- Product Card: Amoxicillin -->
-                <div class="product-card card p-6 shadow-2xl" 
-                     data-id="pharma-001" 
-                     data-name="Amoxicillin 500mg Capsules" 
-                     data-price="28.99" 
-                     data-category="antibiotics"
-                     data-description="Broad-spectrum antibiotic capsules, 100 count bottle">
+                <div class="product-card card p-6 shadow-2xl" data-id="pharma-001"
+                    data-name="Amoxicillin 500mg Capsules" data-price="28.99" data-category="antibiotics"
+                    data-description="Broad-spectrum antibiotic capsules, 100 count bottle">
                     <div class="text-left mb-4">
                         <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                             <i class="fas fa-capsules text-red-600 text-2xl"></i>
@@ -136,30 +135,29 @@
                             <i class="fas fa-bottle-droplet mr-1"></i>100 capsules per bottle
                         </div>
                     </div>
-                    
+
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <label class="form-label text-sm">Quantity:</label>
-                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="50">
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1"
+                                max="50">
                         </div>
-                        
+
                         <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
                             <i class="fas fa-plus mr-2"></i>Add to Order
                         </button>
-                        
+
                         <div class="text-xs text-blue-400 text-center">
-                            <i class="fas fa-prescription mr-1"></i>Rx Required • <i class="fas fa-truck mr-1"></i>2-3 Days Delivery
+                            <i class="fas fa-prescription mr-1"></i>Rx Required • <i class="fas fa-truck mr-1"></i>2-3
+                            Days Delivery
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Product Card: Ibuprofen -->
-                <div class="product-card card p-6 shadow-xl" 
-                     data-id="pharma-002" 
-                     data-name="Ibuprofen 400mg Tablets" 
-                     data-price="15.99" 
-                     data-category="pain-relief"
-                     data-description="Anti-inflammatory pain relief tablets, 200 count bottle">
+                <div class="product-card card p-6 shadow-xl" data-id="pharma-002" data-name="Ibuprofen 400mg Tablets"
+                    data-price="15.99" data-category="pain-relief"
+                    data-description="Anti-inflammatory pain relief tablets, 200 count bottle">
                     <div class="text-left mb-4">
                         <div class="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                             <i class="fas fa-tablets text-orange-600 text-2xl"></i>
@@ -171,30 +169,29 @@
                             <i class="fas fa-pills mr-1"></i>200 tablets per bottle
                         </div>
                     </div>
-                    
+
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <label class="form-label text-sm">Quantity:</label>
-                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="100">
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1"
+                                max="100">
                         </div>
-                        
+
                         <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
                             <i class="fas fa-plus mr-2"></i>Add to Order
                         </button>
-                        
+
                         <div class="text-xs text-blue-400 text-center">
-                            <i class="fas fa-shield-alt mr-1"></i>OTC Available • <i class="fas fa-truck mr-1"></i>Same Day
+                            <i class="fas fa-shield-alt mr-1"></i>OTC Available • <i class="fas fa-truck mr-1"></i>Same
+                            Day
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Product Card: Saline Solution -->
-                <div class="product-card card p-6 shadow-xl" 
-                     data-id="pharma-003" 
-                     data-name="Normal Saline 0.9% IV Solution" 
-                     data-price="12.99" 
-                     data-category="iv-solutions"
-                     data-description="Sterile normal saline IV solution, 1000ml bag">
+                <div class="product-card card p-6 shadow-xl" data-id="pharma-003"
+                    data-name="Normal Saline 0.9% IV Solution" data-price="12.99" data-category="iv-solutions"
+                    data-description="Sterile normal saline IV solution, 1000ml bag">
                     <div class="text-left mb-4">
                         <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                             <i class="fas fa-tint text-blue-600 text-2xl"></i>
@@ -206,30 +203,29 @@
                             <i class="fas fa-flask mr-1"></i>1000ml IV bag
                         </div>
                     </div>
-                    
+
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <label class="form-label text-sm">Quantity:</label>
-                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="100">
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1"
+                                max="100">
                         </div>
-                        
+
                         <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
                             <i class="fas fa-plus mr-2"></i>Add to Order
                         </button>
-                        
+
                         <div class="text-xs text-blue-400 text-center">
-                            <i class="fas fa-certificate mr-1"></i>Sterile • <i class="fas fa-truck mr-1"></i>Next Day Delivery
+                            <i class="fas fa-certificate mr-1"></i>Sterile • <i class="fas fa-truck mr-1"></i>Next Day
+                            Delivery
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Product Card: Insulin -->
-                <div class="product-card card p-6 shadow-xl" 
-                     data-id="pharma-004" 
-                     data-name="Insulin Rapid-Acting 10ml Vial" 
-                     data-price="89.99" 
-                     data-category="chronic-care"
-                     data-description="Fast-acting insulin for diabetes management, 10ml vial">
+                <div class="product-card card p-6 shadow-xl" data-id="pharma-004"
+                    data-name="Insulin Rapid-Acting 10ml Vial" data-price="89.99" data-category="chronic-care"
+                    data-description="Fast-acting insulin for diabetes management, 10ml vial">
                     <div class="text-left mb-4">
                         <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                             <i class="fas fa-syringe text-green-600 text-2xl"></i>
@@ -241,30 +237,29 @@
                             <i class="fas fa-vial mr-1"></i>10ml vial (100 units/ml)
                         </div>
                     </div>
-                    
+
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <label class="form-label text-sm">Quantity:</label>
-                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="20">
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1"
+                                max="20">
                         </div>
-                        
+
                         <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
                             <i class="fas fa-plus mr-2"></i>Add to Order
                         </button>
-                        
+
                         <div class="text-xs text-blue-400 text-center">
-                            <i class="fas fa-prescription mr-1"></i>Rx Required • <i class="fas fa-snowflake mr-1"></i>Cold Storage
+                            <i class="fas fa-prescription mr-1"></i>Rx Required • <i
+                                class="fas fa-snowflake mr-1"></i>Cold Storage
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Product Card: Epinephrine -->
-                <div class="product-card card p-6 shadow-xl" 
-                     data-id="pharma-005" 
-                     data-name="Epinephrine Auto-Injector" 
-                     data-price="299.99" 
-                     data-category="emergency"
-                     data-description="Emergency epinephrine auto-injector 0.3mg">
+                <div class="product-card card p-6 shadow-xl" data-id="pharma-005" data-name="Epinephrine Auto-Injector"
+                    data-price="299.99" data-category="emergency"
+                    data-description="Emergency epinephrine auto-injector 0.3mg">
                     <div class="text-left mb-4">
                         <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                             <i class="fas fa-exclamation-triangle text-yellow-600 text-2xl"></i>
@@ -276,30 +271,29 @@
                             <i class="fas fa-bolt mr-1"></i>0.3mg auto-injector
                         </div>
                     </div>
-                    
+
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <label class="form-label text-sm">Quantity:</label>
-                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="10">
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1"
+                                max="10">
                         </div>
-                        
+
                         <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
                             <i class="fas fa-plus mr-2"></i>Add to Order
                         </button>
-                        
+
                         <div class="text-xs text-blue-400 text-center">
-                            <i class="fas fa-prescription mr-1"></i>Rx Required • <i class="fas fa-truck mr-1"></i>Express Shipping
+                            <i class="fas fa-prescription mr-1"></i>Rx Required • <i
+                                class="fas fa-truck mr-1"></i>Express Shipping
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Product Card: Blood Pressure Medication -->
-                <div class="product-card card p-6 shadow-xl" 
-                     data-id="pharma-006" 
-                     data-name="Lisinopril 10mg Tablets" 
-                     data-price="32.99" 
-                     data-category="chronic-care"
-                     data-description="ACE inhibitor for hypertension, 90 tablets">
+                <div class="product-card card p-6 shadow-xl" data-id="pharma-006" data-name="Lisinopril 10mg Tablets"
+                    data-price="32.99" data-category="chronic-care"
+                    data-description="ACE inhibitor for hypertension, 90 tablets">
                     <div class="text-left mb-4">
                         <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                             <i class="fas fa-heartbeat text-indigo-600 text-2xl"></i>
@@ -311,30 +305,29 @@
                             <i class="fas fa-pills mr-1"></i>90 tablets (3-month supply)
                         </div>
                     </div>
-                    
+
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <label class="form-label text-sm">Quantity:</label>
-                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="25">
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1"
+                                max="25">
                         </div>
-                        
+
                         <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
                             <i class="fas fa-plus mr-2"></i>Add to Order
                         </button>
-                        
+
                         <div class="text-xs text-blue-400 text-center">
-                            <i class="fas fa-prescription mr-1"></i>Rx Required • <i class="fas fa-truck mr-1"></i>2-3 Days
+                            <i class="fas fa-prescription mr-1"></i>Rx Required • <i class="fas fa-truck mr-1"></i>2-3
+                            Days
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Product Card: Flu Vaccine -->
-                <div class="product-card card p-6 shadow-xl" 
-                     data-id="pharma-007" 
-                     data-name="Influenza Vaccine (Quadrivalent)" 
-                     data-price="45.99" 
-                     data-category="vaccines"
-                     data-description="Seasonal flu vaccine, single-dose pre-filled syringe">
+                <div class="product-card card p-6 shadow-xl" data-id="pharma-007"
+                    data-name="Influenza Vaccine (Quadrivalent)" data-price="45.99" data-category="vaccines"
+                    data-description="Seasonal flu vaccine, single-dose pre-filled syringe">
                     <div class="text-left mb-4">
                         <div class="bg-teal-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                             <i class="fas fa-shield-virus text-teal-600 text-2xl"></i>
@@ -346,30 +339,29 @@
                             <i class="fas fa-syringe mr-1"></i>0.5ml pre-filled syringe
                         </div>
                     </div>
-                    
+
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <label class="form-label text-sm">Quantity:</label>
-                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="50">
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1"
+                                max="50">
                         </div>
-                        
+
                         <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
                             <i class="fas fa-plus mr-2"></i>Add to Order
                         </button>
-                        
+
                         <div class="text-xs text-blue-400 text-center">
-                            <i class="fas fa-snowflake mr-1"></i>Cold Storage • <i class="fas fa-truck mr-1"></i>Express Shipping
+                            <i class="fas fa-snowflake mr-1"></i>Cold Storage • <i class="fas fa-truck mr-1"></i>Express
+                            Shipping
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Product Card: Antiseptic -->
-                <div class="product-card card p-6 shadow-xl" 
-                     data-id="pharma-008" 
-                     data-name="Betadine Antiseptic Solution" 
-                     data-price="18.99" 
-                     data-category="pain-relief"
-                     data-description="Povidone iodine antiseptic solution, 500ml bottle">
+                <div class="product-card card p-6 shadow-xl" data-id="pharma-008"
+                    data-name="Betadine Antiseptic Solution" data-price="18.99" data-category="pain-relief"
+                    data-description="Povidone iodine antiseptic solution, 500ml bottle">
                     <div class="text-left mb-4">
                         <div class="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
                             <i class="fas fa-bottle-droplet text-amber-600 text-2xl"></i>
@@ -381,25 +373,27 @@
                             <i class="fas fa-flask mr-1"></i>500ml bottle
                         </div>
                     </div>
-                    
+
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <label class="form-label text-sm">Quantity:</label>
-                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1" max="75">
+                            <input type="number" class="quantity-input w-20 px-2 py-1 border rounded" value="1" min="1"
+                                max="75">
                         </div>
-                        
+
                         <button class="add-to-cart btn btn-outline w-full bg-blue-500 rounded-full text-white">
                             <i class="fas fa-plus mr-2"></i>Add to Order
                         </button>
-                        
+
                         <div class="text-xs text-blue-400 text-center">
-                            <i class="fas fa-shield-alt mr-1"></i>No Rx Required • <i class="fas fa-truck mr-1"></i>Same Day
+                            <i class="fas fa-shield-alt mr-1"></i>No Rx Required • <i class="fas fa-truck mr-1"></i>Same
+                            Day
                         </div>
                     </div>
                 </div>
-                
+
             </div>
-            
+
             <!-- Load More Button -->
             <div class="text-center mt-12">
                 <button class="btn btn-outline text-lg px-8 py-3 bg-gray-500 rounded-full text-white">
@@ -407,15 +401,15 @@
                 </button>
                 <p class="text-gray-600 mt-4">Showing 8 of 200+ pharmaceutical products</p>
             </div>
-            
+
         </div>
     </section>
-    
+
     <!-- Order List Modal -->
     <div id="order-list-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
         <div class="flex items-center justify-center min-h-screen px-4">
-            <div class="bg-white rounded-lg max-w-2xl w-full max-h-auto overflow-hidden">
-                <div class="p-6 border-b">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] sm:max-h-96 overflow-hidden">
+                <div class="p-4 sm:p-6 border-b">
                     <div class="flex justify-between items-center">
                         <h3 class="text-lg font-semibold">Order List</h3>
                         <button onclick="toggleOrderList()" class="text-gray-500 hover:text-gray-700">
@@ -423,14 +417,15 @@
                         </button>
                     </div>
                 </div>
-                <div class="p-6 max-h-64 overflow-y-auto">
+                <div class="p-4 sm:p-6 max-h-48 sm:max-h-64 overflow-y-auto">
                     <div id="cart-items"></div>
                 </div>
-                <div class="p-6 border-t bg-gray-50">
+                <div class="p-4 sm:p-6 border-t bg-gray-50">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-lg font-semibold">Total: <span id="cart-total">$0.00</span></span>
-                        <div class="space-x-2">
-                            <button onclick="MHProcurement.cart.clearAll()" class="btn bg-gray-500 hover:bg-gray-600 text-white text-sm">
+                        <div class="flex flex-col sm:flex-row gap-2">
+                            <button onclick="MHProcurement.cart.clearAll()"
+                                class="btn bg-gray-500 hover:bg-gray-600 text-white text-sm">
                                 Clear All
                             </button>
                             <button onclick="MHProcurement.pdf.generateOrderForm()" class="btn btn-primary text-sm">
@@ -442,27 +437,28 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Load Footer -->
     <div id="footer"></div>
 
     <!-- Scripts -->
     <!-- jsPDF for PDF Generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    
+
     <!-- Main JavaScript -->
     <script src="/assets/js/index.js"></script>
-    
+
     <!-- Page-Specific JavaScript -->
     <script>
         // Load header
-    fetch('/commons/header.html')
+        fetch('/commons/header.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('header').innerHTML = html;
                 MHProcurement.navigation.initMobileMenu();
-        });
-        
+                MHProcurement.navigation.highlightActiveLink();
+            });
+
 
 
         // Toggle Order List Modal
@@ -472,24 +468,24 @@
                 modal.classList.toggle('hidden');
             }
         }
-        
+
         // Filter and Sort Products
         function initializeFilters() {
             const categoryFilter = document.getElementById('category-filter');
             const sortFilter = document.getElementById('sort-filter');
             const productsGrid = document.getElementById('products-grid');
             const products = Array.from(productsGrid.children);
-            
+
             function filterProducts() {
                 const selectedCategory = categoryFilter.value;
                 const sortBy = sortFilter.value;
-                
+
                 // Filter products
                 const filteredProducts = products.filter(product => {
                     if (!selectedCategory) return true;
                     return product.dataset.category === selectedCategory;
                 });
-                
+
                 // Sort products
                 filteredProducts.sort((a, b) => {
                     switch (sortBy) {
@@ -505,13 +501,13 @@
                             return 0;
                     }
                 });
-                
+
                 // Clear and repopulate grid
                 productsGrid.innerHTML = '';
                 filteredProducts.forEach(product => {
                     productsGrid.appendChild(product);
                 });
-                
+
                 // Hide non-matching products
                 products.forEach(product => {
                     if (filteredProducts.includes(product)) {
@@ -521,30 +517,31 @@
                     }
                 });
             }
-            
+
             if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
             if (sortFilter) sortFilter.addEventListener('change', filterProducts);
         }
-        
+
         // Close modal when clicking outside
-        document.getElementById('order-list-modal')?.addEventListener('click', function(e) {
+        document.getElementById('order-list-modal')?.addEventListener('click', function (e) {
             if (e.target === this) {
                 toggleOrderList();
             }
         });
-        
+
         // Initialize page functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initializeFilters();
         });
-        
+
         // Load footer
-    fetch('/commons/footer.html')
+        fetch('/commons/footer.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('footer').innerHTML = data;    
+                document.getElementById('footer').innerHTML = data;
             });
     </script>
-    
+
 </body>
+
 </html>
