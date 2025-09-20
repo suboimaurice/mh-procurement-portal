@@ -10,16 +10,16 @@
         content="About Municipal Hospital Procurement Portal - Learn about our mission, values, and commitment to efficient outpatient services procurement." />
     <meta name="keywords" content="hospital procurement, about, mission, values, outpatient services" />
     <meta name="author" content="Municipal Hospital IT Department" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="../manifest.json" />
 
     <!-- Title -->
     <title>About Us | MH Procurement Portal</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="72x72" href="/assets/images/icons/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="../assets/images/icons/icon-72x72.png">
 
 
-    <link href="/assets/css/output.css" rel="stylesheet">
+    <link href="../assets/css/output.css" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -78,11 +78,11 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="/assets/js/index.js"></script>
+    <script src="../assets/js/index.js"></script>
     <script>
 
         // Load header
-        fetch('/commons/header.html')
+        fetch('../commons/header.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('header').innerHTML = html;
@@ -105,7 +105,7 @@
         });
 
         // Load footer
-        fetch('/commons/footer.html')
+        fetch('../commons/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;

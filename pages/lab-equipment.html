@@ -11,15 +11,15 @@
     <meta name="keywords"
         content="lab equipment, laboratory instruments, microscopes, centrifuge, analyzers, hospital procurement">
     <meta name="author" content="Municipal Hospital IT Department">
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="../manifest.json" />
     <!-- Title -->
     <title>Lab Equipment | MH Procurement Portal</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="72x72" href="/assets/images/icons/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="../assets/images/icons/icon-72x72.png">
 
     <!-- Built Tailwind CSS -->
-    <link rel="stylesheet" href="/assets/css/output.css">
+    <link rel="stylesheet" href="../assets/css/output.css">
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -381,12 +381,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <!-- Main JavaScript -->
-    <script src="/assets/js/index.js"></script>
+    <script src="../assets/js/index.js"></script>
 
     <!-- Page-Specific JavaScript -->
     <script>
         // Load header
-        fetch('/commons/header.html')
+        fetch('../commons/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
@@ -394,8 +394,8 @@
                 MHProcurement.navigation.highlightActiveLink();
             });
 
-        // Load footer
-        fetch('/commons/footer.html')
+            // Load footer
+        fetch('../commons/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer').innerHTML = data;

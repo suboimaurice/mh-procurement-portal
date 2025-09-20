@@ -11,8 +11,8 @@
     <meta name="keywords"
         content="hospital procurement, medical supplies, lab equipment, pharmaceuticals, municipal hospital, outpatient services">
     <meta name="author" content="Municipal Hospital IT Department">
-    <link href="/assets/css/output.css" rel="stylesheet">
-    <link rel="manifest" href="/manifest.json">
+    <link href="assets/css/output.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
 
     <!-- Title -->
     <title>MH Procurement Portal | Municipal Hospital Outpatient Services</title>
@@ -33,7 +33,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js', { scope: '/' }).then(registration => {
+                navigator.serviceWorker.register('service-worker.js', { scope: './' }).then(registration => {
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
                 }).catch(err => {
                     console.log('ServiceWorker registration failed: ', err);
@@ -311,23 +311,56 @@
     <!-- Additional Page-Specific JavaScript -->
     <script>
         // Load header
-        fetch('/commons/header.html')
-            .then(response => response.text())
+        fetch('commons/header.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load header');
+                }
+                return response.text();
+            })
             .then(data => {
-                document.getElementById('header').innerHTML = data;
-                // Initialize mobile menu after header is loaded
-                if (window.MHProcurement && MHProcurement.navigation) {
-                    MHProcurement.navigation.initMobileMenu();
-                    MHProcurement.navigation.highlightActiveLink();
+                const headerElement = document.getElementById('header');
+                if (headerElement) {
+                    headerElement.innerHTML = data;
+                    // Initialize mobile menu after header is loaded
+                    if (window.MHProcurement && MHProcurement.navigation) {
+                        MHProcurement.navigation.initMobileMenu();
+                        MHProcurement.navigation.highlightActiveLink();
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error loading header:', error);
+                const headerElement = document.getElementById('header');
+                if (headerElement) {
+                    headerElement.innerHTML = '<p class="text-red-500">Failed to load navigation</p>';
                 }
             });
 
         // Load footer
-        fetch('/commons/footer.html')
-            .then(response => response.text())
+        fetch('commons/footer.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load footer');
+                }
+                return response.text();
+            })
             .then(data => {
-                document.getElementById('footer').innerHTML = data;
-                document.getElementById('year').innerHTML = new Date().getFullYear();
+                const footerElement = document.getElementById('footer');
+                if (footerElement) {
+                    footerElement.innerHTML = data;
+                    const yearElement = document.getElementById('year');
+                    if (yearElement) {
+                        yearElement.innerHTML = new Date().getFullYear();
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                const footerElement = document.getElementById('footer');
+                if (footerElement) {
+                    footerElement.innerHTML = '<p class="text-red-500">Failed to load footer</p>';
+                }
             });
 
 
