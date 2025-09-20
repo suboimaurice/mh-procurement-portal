@@ -605,9 +605,9 @@ document.addEventListener('DOMContentLoaded', function() {
     MHProcurement.cart.init();
     MHProcurement.forms.init();
 
-    // Initialize mobile menu if header is already loaded
-    // (This handles cases where header might be loaded synchronously)
+    // Initialize mobile menu and navigation highlighting
     MHProcurement.navigation.initMobileMenu();
+    MHProcurement.navigation.highlightActiveLink();
 
     // Add fade-in animation
     const mainContent = document.querySelector('main');

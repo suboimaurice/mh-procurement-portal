@@ -59,17 +59,17 @@
                         </a>
                         
                         <!-- Order List Button -->
-                        <button onclick="toggleOrderList()" class="relative bg-orange-300 text-orange-900 hover:bg-yellow-600 hover:text-white px-4 py-2 rounded-full transition-colors shadow-md">
-                            <i class="fas fa-list-alt mr-2"></i>Ordered List
-                            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-1 min-w-6 text-center" style="display: none;">0</span>
+                        <button onclick="toggleOrderList()" aria-label="View ordered items list" class="relative bg-orange-300 text-orange-900 hover:bg-yellow-600 hover:text-white px-4 py-2 rounded-full transition-colors shadow-md">
+                            <i class="fas fa-list-alt mr-2" aria-hidden="true"></i>Ordered List
+                            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-1 min-w-6 text-center" style="display: none;" aria-label="Number of items in cart">0</span>
                         </button>
                     </div>
                 </div>
                 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-white hover:text-yellow-300 focus:outline-none focus:text-yellow-300" aria-expanded="false">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="mobile-menu-button" class="text-white hover:text-yellow-300 focus:outline-none focus:text-yellow-300" aria-expanded="false" aria-label="Toggle mobile navigation menu">
+                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
                     </button>
 
                     <!-- Mobile Navigation Menu -->

@@ -11,6 +11,9 @@
     <meta name="keywords"
         content="hospital procurement, medical supplies, lab equipment, pharmaceuticals, municipal hospital, outpatient services">
     <meta name="author" content="Municipal Hospital IT Department">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Municipal Hospital IT Department">
     <link href="https://suboimaurice.github.io/mh-procurement-portal/assets/css/output.css" rel="stylesheet">
     <link rel="manifest" href="https://suboimaurice.github.io/mh-procurement-portal/manifest.json">
 
@@ -42,8 +45,154 @@
         }
     </script>
 
-    <!-- Navigation Header (reuse same as other pages) -->
-    <div id="header"></div>
+    <!-- Navigation Header -->
+    <nav class="navbar sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                        <a href="https://suboimaurice.github.io/mh-procurement-portal/index.html">
+                            <i class="fas fa-hospital text-white text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="text-white">
+                        <h1 class="text-lg font-bold">MH Procurement Portal</h1>
+                        <p class="text-xs opacity-90">Outpatient Services Department</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="flex items-baseline space-x-8">
+                        <a href="https://suboimaurice.github.io/mh-procurement-portal/index.html" class="nav-link text-white hover:text-yellow-300 px-3 py-2 text-sm font-medium">
+                            <i class="fas fa-home mr-2"></i>Home
+                        </a>
+                        <div class="relative group">
+                            <button class="nav-link text-yellow-300 px-3 py-2 text-sm font-medium flex items-center">
+                                <i class="fas fa-boxes mr-2"></i>Categories
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                                <div class="py-1">
+                                    <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/medical-supplies.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700">
+                                        <i class="fas fa-stethoscope mr-2"></i>Medical Supplies
+                                    </a>
+                                    <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/lab-equipment.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700">
+                                        <i class="fas fa-microscope mr-2"></i>Lab Equipment
+                                    </a>
+                                    <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/pharmaceuticals.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700">
+                                        <i class="fas fa-pills mr-2"></i>Pharmaceuticals
+                                    </a>
+                                    <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/office-supplies.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700">
+                                        <i class="fas fa-clipboard mr-2"></i>Office Supplies
+                                    </a>
+                                    <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/services.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700">
+                                        <i class="fas fa-cogs mr-2"></i>Services
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                            <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/about.html" class="nav-link text-white hover:text-yellow-300 px-3 py-2 text-sm font-medium">
+                            <i class="fas fa-info-circle mr-2"></i>About
+                        </a>
+                            <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/how-it-works.html" class="nav-link text-white hover:text-yellow-300 px-3 py-2 text-sm font-medium">
+                            <i class="fas fa-question-circle mr-2"></i>How It Works
+                        </a>
+                            <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/contact.html" class="nav-link text-white hover:text-yellow-300 px-3 py-2 text-sm font-medium">
+                            <i class="fas fa-envelope mr-2"></i>Contact
+                        </a>
+
+                        <!-- Order List Button -->
+                        <button onclick="toggleOrderList()" aria-label="View ordered items list" class="relative bg-orange-300 text-orange-900 hover:bg-yellow-600 hover:text-white px-4 py-2 rounded-full transition-colors shadow-md">
+                            <i class="fas fa-list-alt mr-2" aria-hidden="true"></i>Ordered List
+                            <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-1 min-w-6 text-center" style="display: none;" aria-label="Number of items in cart">0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-yellow-300 focus:outline-none focus:text-yellow-300" aria-expanded="false" aria-label="Toggle mobile navigation menu">
+                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                    </button>
+
+                    <!-- Mobile Navigation Menu -->
+                    <div id="mobile-menu" class="absolute top-full left-0 right-0 mt-2 hidden md:hidden bg-blue-700/95 rounded-xl mx-2 z-60">
+            <div class="px-2 pt-2 pb-2 space-y-2">
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/index.html" class="nav-link text-white block px-2 py-2 text-base font-medium">
+                    <i class="fas fa-home mr-2"></i>Home
+                </a>
+                <div class="text-white px-3 py-2 text-sm font-medium border-b border-yellow-300/30 mb-2">Categories</div>
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/medical-supplies.html" class="text-gray-300 block px-6 py-2 text-sm">
+                    <i class="fas fa-stethoscope mr-2"></i>Medical Supplies
+                </a>
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/lab-equipment.html" class="text-gray-300 block px-6 py-2 text-sm">
+                    <i class="fas fa-microscope mr-2"></i>Lab Equipment
+                </a>
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/pharmaceuticals.html" class="text-gray-300 block px-6 py-2 text-sm">
+                    <i class="fas fa-pills mr-2"></i>Pharmaceuticals
+                </a>
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/office-supplies.html" class="text-gray-300 block px-6 py-2 text-sm">
+                    <i class="fas fa-clipboard mr-2"></i>Office Supplies
+                </a>
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/services.html" class="text-gray-300 block px-6 py-2 text-sm">
+                    <i class="fas fa-cogs mr-2"></i>Services
+                </a>
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/about.html" class="nav-link text-white block px-3 py-2 text-base font-medium">
+                    <i class="fas fa-info-circle mr-2"></i>About
+                </a>
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/how-it-works.html" class="nav-link text-white block px-3 py-2 text-base font-medium">
+                    <i class="fas fa-question-circle mr-2"></i>How It Works
+                </a>
+                <a href="https://suboimaurice.github.io/mh-procurement-portal/pages/contact.html" class="nav-link text-white block px-3 py-2 text-base font-medium">
+                    <i class="fas fa-envelope mr-2"></i>Contact
+                </a>
+
+                <!-- Order List Button -->
+                        <button onclick="toggleOrderList()" class="relative bg-orange-300 text-orange-900 hover:bg-yellow-600 hover:text-white space-y-1 px-2 py-1 rounded-full transition-colors shadow-md">
+                            <i class="text-xs font-semibold fas fa-list-alt mr-1"></i>Ordered List
+                            <span id="cart-count-mobile" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-1 min-w-6 text-center" style="display: none;">0</span>
+                        </button>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-- Order List Modal -->
+    <div id="order-list-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] sm:max-h-96 overflow-hidden">
+                <div class="p-4 sm:p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Order List</h3>
+                        <button onclick="toggleOrderList()" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-6 max-h-48 sm:max-h-64 overflow-y-auto">
+                    <div id="cart-items"></div>
+                </div>
+                <div class="p-4 sm:p-6 border-t bg-gray-50">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-semibold">Total: <span id="cart-total">$0.00</span></span>
+                        <div class="flex flex-col sm:flex-row gap-2">
+                            <button onclick="MHProcurement.cart.clearAll()"
+                                class="btn bg-gray-500 hover:bg-gray-600 text-white text-sm">
+                                Clear All
+                            </button>
+                            <button onclick="MHProcurement.pdf.generateOrderForm()" class="btn btn-primary text-sm">
+                                <i class="fas fa-download mr-1"></i>Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-gradient text-white py-20">
@@ -277,33 +426,6 @@
 
     <!-- Additional Page-Specific JavaScript -->
     <script>
-        // Load header
-        fetch('https://suboimaurice.github.io/mh-procurement-portal/commons/header.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to load header');
-                }
-                return response.text();
-            })
-            .then(data => {
-                const headerElement = document.getElementById('header');
-                if (headerElement) {
-                    headerElement.innerHTML = data;
-                    // Initialize mobile menu after header is loaded
-                    if (window.MHProcurement && MHProcurement.navigation) {
-                        MHProcurement.navigation.initMobileMenu();
-                        MHProcurement.navigation.highlightActiveLink();
-                    }
-                }
-            })
-            .catch(error => {
-                console.error('Error loading header:', error);
-                const headerElement = document.getElementById('header');
-                if (headerElement) {
-                    headerElement.innerHTML = '<p class="text-red-500">Failed to load navigation</p>';
-                }
-            });
-
         // Load footer
         fetch('https://suboimaurice.github.io/mh-procurement-portal/commons/footer.html')
             .then(response => {
