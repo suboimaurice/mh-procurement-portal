@@ -575,7 +575,7 @@ MHProcurement.pdf.generateOrderForm = async function() {
     
    // Add logo to the right side of the footer
     try {
-        const logoPath = '/assets/images/logo.png';
+        const logoPath = 'https://suboimaurice.github.io/mh-procurement-portal/assets/images/logo.png';
         const logoDataUrl = await MHProcurement.pdf.preloadImage(logoPath);
         const logoWidth = 20;
         const logoHeight = 20;

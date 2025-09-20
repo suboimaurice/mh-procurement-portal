@@ -11,14 +11,14 @@
     <meta name="keywords"
         content="hospital procurement, medical supplies, lab equipment, pharmaceuticals, municipal hospital, outpatient services">
     <meta name="author" content="Municipal Hospital IT Department">
-    <link href="assets/css/output.css" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
+    <link href="https://suboimaurice.github.io/mh-procurement-portal/assets/css/output.css" rel="stylesheet">
+    <link rel="manifest" href="https://suboimaurice.github.io/mh-procurement-portal/manifest.json">
 
     <!-- Title -->
     <title>MH Procurement Portal | Municipal Hospital Outpatient Services</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="72x72" href="assets/images/icons/icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="https://suboimaurice.github.io/mh-procurement-portal/assets/images/icons/icon-72x72.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -33,7 +33,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('service-worker.js', { scope: './' }).then(registration => {
+                navigator.serviceWorker.register('https://suboimaurice.github.io/mh-procurement-portal/service-worker.js', { scope: '/mh-procurement-portal/' }).then(registration => {
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
                 }).catch(err => {
                     console.log('ServiceWorker registration failed: ', err);
@@ -306,12 +306,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <!-- Main JavaScript -->
-    <script src="assets/js/index.js"></script>
+    <script src="https://suboimaurice.github.io/mh-procurement-portal/assets/js/index.js"></script>
 
     <!-- Additional Page-Specific JavaScript -->
     <script>
         // Load header
-        fetch('commons/header.html')
+        fetch('https://suboimaurice.github.io/mh-procurement-portal/commons/header.html')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to load header');
@@ -338,7 +338,7 @@
             });
 
         // Load footer
-        fetch('commons/footer.html')
+        fetch('https://suboimaurice.github.io/mh-procurement-portal/commons/footer.html')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to load footer');
